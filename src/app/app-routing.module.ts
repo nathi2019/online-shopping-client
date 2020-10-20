@@ -6,6 +6,7 @@ import { OrderComponent } from './pages/shop-home/order/order.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 import { ShopHomeComponent } from './pages/shop-home/shop-home.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 const routes: Routes = [
@@ -17,10 +18,12 @@ const routes: Routes = [
       { path: '', component: ProductDisplayComponent },
       { path: 'orders', component: OrderComponent },
       { path: 'cart', component: UserCartComponent },
-      { path: 'edit-profile', component: EditProfileComponent }
+      { path: 'edit-profile', component: EditProfileComponent },
+      
     ],
     component: ShopHomeComponent,
   },
+  { path: 'login', component: LoginComponent },
 
 
 ];

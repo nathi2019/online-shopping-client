@@ -1,16 +1,18 @@
-import { BrowserModule}from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import  {MatMenuModule} from '@angular/material/menu';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import { MatListModule} from '@angular/material/list';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatPaginatorModule} from'@angular/material/paginator';
-import { MatTableModule} from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { SalesViewComponent } from './admin/sales-view/sales-view.component';
 import { ManageEmployeeComponent } from './admin/manage-employee/manage-employee.component';
@@ -22,10 +24,10 @@ import { SignupComponent } from './signup/signup.component';
 import { CatagoryPaneComponent } from './shop-home/catagory-pane/catagory-pane.component';
 import { ProductDisplayComponent } from './shop-home/product-display/product-display.component';
 import { UserCartComponent } from './shop-home/user-cart/user-cart.component';
-import {AppRoutingModule } from '../app-routing.module';
+import { AppRoutingModule } from '../app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { from } from 'rxjs';
-import {HttpClientModule}from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderComponent } from './shop-home/order/order.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
@@ -35,9 +37,10 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
 
 @NgModule({
   declarations: [AdminHomeComponent, SalesViewComponent, ManageEmployeeComponent, ManageProductComponent, EditProfileComponent,
-     ShopHomeComponent, LoginComponent, SignupComponent, CatagoryPaneComponent, ProductDisplayComponent, UserCartComponent, PaymentComponent, OrderComponent, PageHeaderComponent, PageFooterComponent,],
+    ShopHomeComponent, LoginComponent, SignupComponent, CatagoryPaneComponent, ProductDisplayComponent, UserCartComponent, PaymentComponent, OrderComponent, PageHeaderComponent, PageFooterComponent,],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -45,6 +48,7 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
     FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
+    MatInputModule,
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
@@ -52,15 +56,15 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
     MatCardModule,
     MatPaginatorModule,
     MatTableModule,
-    
+
   ],
-  exports: [AdminHomeComponent, 
-            SalesViewComponent, 
-            CatagoryPaneComponent, 
-            ProductDisplayComponent, 
-            UserCartComponent,
-            ShopHomeComponent,
-          ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  exports: [AdminHomeComponent,
+    SalesViewComponent,
+    CatagoryPaneComponent,
+    ProductDisplayComponent,
+    UserCartComponent,
+    ShopHomeComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PagesModule { }
