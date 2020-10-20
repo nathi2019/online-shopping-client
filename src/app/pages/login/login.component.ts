@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: [' ', Validators.required]
+      password: ['', Validators.required]
 
     });
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';

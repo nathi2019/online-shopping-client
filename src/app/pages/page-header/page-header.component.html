@@ -9,11 +9,10 @@
     <span>Elegant e-shop</span>
     <span>
         <mat-form-field>
-            <mat-form-field class="search-form">
-                <input class="input-search" type="search" id="mainSearch">
-            </mat-form-field>
-            <button button="submit" mat-raised-button>Search</button>
-            </mat-form-field>
+            <input matInput class="input-search" type="search" id="mainSearch">
+            <button button="submit" mat-raised-button class="search-button">Search</button>
+        </mat-form-field>
+
     </span>
 
     <span class="toolbar-spacer"></span>
@@ -25,7 +24,7 @@
         <span>0</span>
     </button>
 
-    <button mat-button [matMenuTriggerFor]="user">
+    <button mat-button [matMenuTriggerFor]="user" *ngIf="currentUser; else notLoggedIn">
         <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #user="matMenu" [overlapTrigger]="false">
@@ -40,4 +39,8 @@
             <mat-icon>logout</mat-icon><span>Logout</span>
         </button>
     </mat-menu>
+    <ng-template #notLoggedIn>
+        <button mat-button (click)="onPleaseLoginButtonPressed()">Please Login</button>
+
+    </ng-template>
 </mat-toolbar>

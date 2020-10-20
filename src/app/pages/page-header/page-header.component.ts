@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 })
 export class PageHeaderComponent implements OnInit {
 
+  currentUser = "";
+
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -24,6 +27,9 @@ export class PageHeaderComponent implements OnInit {
   }
   onEditProfileButtonClicked() {
     this.router.navigate(['shop-home/edit-profile']);
+  }
+  onPleaseLoginButtonPressed(){
+    this.router.navigate(['login']);
   }
 
 }

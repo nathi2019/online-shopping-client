@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { SalesViewComponent } from './admin/sales-view/sales-view.component';
@@ -56,6 +57,8 @@ import { PageFooterComponent } from './page-footer/page-footer.component';
     MatCardModule,
     MatPaginatorModule,
     MatTableModule,
+    MatFormFieldModule,
+
 
   ],
   exports: [AdminHomeComponent,

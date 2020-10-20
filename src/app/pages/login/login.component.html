@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayout.xs="row" fxLayoutGap="5%" fxLayoutAlign="center">
     <mat-card>
-        <mat-card-title> Login</mat-card-title>
+        <mat-card-title> eLegant</mat-card-title>
         <mat-card-content>
             <form [formGroup]="loginForm" (ngSubmit)="onLoginButtonPressed()">
                 <p>
@@ -15,9 +15,17 @@
                     </mat-form-field>
                 </p>
 
-                <p *ngIf="error" class="error">
-                    {{ error }}
-                </p>
+
+                <div *ngIf="error" fxLayout="column" fxLayout.xs="row" fxLayoutGap="5%" fxLayoutAlign="center">
+                    <p *ngIf="error" class="error">
+                        {{ error }}
+                    </p>
+                    
+                    <a  mat-button> Forgot password ?</a>
+
+                </div>
+
+
 
                 <div class="button">
                     <button type="submit" mat-button>Login</button>
@@ -29,9 +37,9 @@
 
         </mat-card-content>
     </mat-card>
-    
-        <p style="text-align: center;">Do not have account?</p>
-        <button mat-raised-button>Sign Up</button>
 
-    
+    <p style="text-align: center;">Do not have an account?</p>
+    <button mat-raised-button>Sign Up</button>
+
+
 </div>
