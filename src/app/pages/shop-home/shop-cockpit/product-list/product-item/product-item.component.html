@@ -1,0 +1,33 @@
+<mat-card class="product-card">
+
+  <mat-card-title>{{product.name}}</mat-card-title>
+  <mat-card-subtitle>Electronics</mat-card-subtitle>
+
+  <img mat-card-image src="{{product.imageUrl}}" >
+
+
+
+<mat-card-content>
+
+  <p class="product-desc">
+    {{product.description}}
+  </p>
+
+
+</mat-card-content>
+
+
+
+  <mat-card-actions>
+    <div class ="price">
+      <span class="price-top">$</span>
+      <span class="price-down">{{product.price | number:'1.0-0'}}</span>
+      <span class="price-top">00</span>
+    </div>
+    <button class="add-to-cart"mat-icon-button  aria-label="Example icon button with a menu icon">
+      <mat-icon>add_shopping_cart</mat-icon>
+
+    </button>
+
+  </mat-card-actions>
+</mat-card>

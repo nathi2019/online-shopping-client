@@ -1,4 +1,6 @@
-
+.outlet{
+ padding-top: 70px;
+}
 .product-card {
   width: 23%;
   margin-bottom: 2%;

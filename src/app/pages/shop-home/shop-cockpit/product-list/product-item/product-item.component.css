@@ -1,0 +1,113 @@
+.product-card{
+
+  /*this makes the image in src fit to the size specified below*/
+  height: 400px;
+  width: 100%;
+
+  cursor: pointer ;
+
+
+}
+.product-card:hover{
+
+
+  box-shadow: 0 8px 8px 8px rgba(0,0,0,.2), 0 8px 8px 0 rgba(0,0,0,.14), 0 8px 8px 0 rgba(0,0,0,.12) !important;
+  transform: translate3d(0,-15,0);
+  transition: background .10s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+
+}
+.product-card:hover .add-to-cart
+{
+  visibility: visible;
+}
+
+
+
+::ng-deep .mat-card-header-text {
+     margin: 0px!important;
+
+}
+.mat-card-header{
+width: 100%;
+
+
+
+}
+.mat-card-title{
+  font-size: 1rem;
+  float: left;
+
+}
+.mat-card-subtitle{
+  float: right;
+  text-align: right;
+  background-color: whitesmoke;
+  font-size: .6rem;
+}
+.mat-card-image{
+  object-fit:fill ;
+  height: 60%;
+  padding: 10px;
+
+
+}
+.product-desc{
+
+ font-size: 0.8rem;
+
+}
+
+
+.mat-card-content{
+  height: 10%;
+  object-fit: cover;
+
+
+}
+
+.price{
+
+  float: left;
+  margin: 5%;
+}
+
+.price-top{
+  position: relative;
+  top: -.9em;
+  font-size: 12px;
+  margin: 2px;
+}
+.price-down{
+
+
+  font-size: 30px;
+
+
+
+}
+
+.mat-card-actions{
+  width: 100%;
+  height: 10%;
+  padding: 0;
+
+
+
+}
+.add-to-cart{
+  size: 30px;;
+  float: right;
+
+  color: black;
+  visibility: hidden;
+
+
+
+}
+
+
+.add-to-cart:hover{
+  color: crimson;
+
+
+}
