@@ -41,7 +41,7 @@ width: 100%;
 .mat-card-subtitle{
   float: right;
   text-align: right;
- 
+  background-color: whitesmoke;
   font-size: .6rem;
 }
 .mat-card-image{
