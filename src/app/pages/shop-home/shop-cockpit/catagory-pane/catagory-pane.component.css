@@ -1,36 +1,3 @@
 .container-fluid{
     height: 500px;
-
-}
-.category-list{
-height: 500px;
-}
-.slider{
-    padding: 0px;
-    width: 100%;
-}
-.max-price{
-    float: right;
-
-}
-.add-category{
-    float: right;
-}
-.add-category:hover{
-    color: crimson;
-}
-.category-label{
-    float: left;
-    width: auto;
-    display: inline;
-}
-
-.add-category:hover .category-list{
-   background-color: black;
-}
-.category-list{
-}
-.chip-list{
-   margin-right: 0px;
-    margin-top: 20px;
 }

@@ -12,4 +12,6 @@ export class ShopHomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  
 }
