@@ -1,3 +1,46 @@
-<div class="container-fluid">
 
-</div>
+<mat-card class="category-list">
+
+    <span class="max-price-label">Min Price</span>
+    <span class="max-price">{{minValue}} $</span>
+    <span></span>
+    <mat-slider
+
+            class="slider"
+            [(ngModel)]="minValue"
+            max="1000"
+            step="20"
+            (input)="onChangeMin($event)"
+            min="0" ></mat-slider>
+
+    <span class="max-price-label">Max Price</span>
+    <span class="max-price">{{maxValue}} $</span>
+    <span></span>
+    <mat-slider
+            class="slider"
+            [(ngModel)]="maxValue"
+            max="2000"
+            step="20"
+            (input)="onChangeMax($event)"
+            min="1000" ></mat-slider>
+    <hr>
+    <div>
+    <span > Categories  </span>
+    <button mat-icon-button class="add-category" (click)="openDialog()" >
+        <mat-icon>add</mat-icon>
+
+    </button>
+    </div>
+    <div class="chip-list">
+    <mat-chip-list class="chip-list" >
+        <mat-chip *ngFor="let category of selectedCategories"  selectable="true"
+                  removable="true" (removed)="onRemoveClick(category)">
+            {{category}}
+            <mat-icon matChipRemove >cancel</mat-icon>
+        </mat-chip>
+
+    </mat-chip-list>
+    </div>
+</mat-card>
+
+
