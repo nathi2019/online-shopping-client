@@ -1,3 +1,13 @@
+.brand-text{
+  font-family: 'Pacifico', cursive;
+}
+.login-label{
+  font-family: 'Roboto';
+  font-size: 1rem;
+}
+.mat-toolbar{
+  background-color: snow ;
+}
 .toolbar-icon {
     padding: 0 14px;
   }
@@ -30,3 +40,61 @@
     border-radius:2%;
     border:#f5f5f5 ;
   }
+
+
+.search-input{
+  width: 30%;
+  margin: 15px;
+}
+
+
+.form-control:focus {
+
+  z-index: +1;
+  border-color: snow;
+  box-shadow: 0 1px 1px 1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px 0 rgba(0,0,0,.12) !important;
+
+}
+.search-button{
+  transition: background .10s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+
+}
+.search-button:hover{
+
+  box-shadow: 0 6px 6px 6px rgba(0,0,0,.2), 0 6px 6px 0 rgba(0,0,0,.14), 0 6px 6px 0 rgba(0,0,0,.12) !important;
+  transform: translate3d(0,-15,0);
+  transition: background .10s cubic-bezier(.25,.8,.25,1),box-shadow 500ms cubic-bezier(.4,0,.2,1);
+
+}
+.form-control{
+  transition: background .5s cubic-bezier(.25,.8,.25,1),box-shadow 500ms cubic-bezier(.4,0,.2,1);
+
+}
+.form-control:hover{
+
+  box-shadow: 0 6px 6px 6px rgba(0,0,0,.2), 0 6px 6px 0 rgba(0,0,0,.14), 0 6px 6px 0 rgba(0,0,0,.12) !important;
+  transform: translate3d(0,-15,0);
+  transition: background .10s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+
+}
+.form-control:focus + .search-button{
+
+  box-shadow: 0 6px 6px 6px rgba(0,0,0,.2), 0 6px 6px 0 rgba(0,0,0,.14), 0 6px 6px 0 rgba(0,0,0,.12) !important;
+  transform: translate3d(0,-15,0);
+  transition: background .10s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+
+}
+.form-control:hover + .search-button{
+
+  box-shadow: 0 6px 6px 6px rgba(0,0,0,.2), 0 6px 6px 0 rgba(0,0,0,.14), 0 6px 6px 0 rgba(0,0,0,.12) !important;
+  transform: translate3d(0,-15,0);
+  transition: background .10s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+
+}
+.form-control:focus {
+
+  box-shadow: 0 6px 6px 6px rgba(0,0,0,.2), 0 6px 6px 0 rgba(0,0,0,.14), 0 6px 6px 0 rgba(0,0,0,.12) !important;
+  transform: translate3d(0,-15,0);
+  transition: background .10s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+
+}

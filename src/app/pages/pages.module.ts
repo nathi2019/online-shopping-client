@@ -42,6 +42,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
+import {MatBadgeModule} from '@angular/material/badge';
+
 
 
 @NgModule({
@@ -86,7 +88,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
       MatInputModule,
       MatFormFieldModule,
       MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatBadgeModule
   ],
   exports: [AdminHomeComponent,
             SalesViewComponent,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-page-header',
@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./page-header.component.css']
 })
 export class PageHeaderComponent implements OnInit {
-
+  @Input() isConnected: boolean ;
+  @Input() inCartItemNumber: number ;
   constructor(private router: Router) { }
 
   ngOnInit(): void {

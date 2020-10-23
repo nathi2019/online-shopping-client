@@ -1,9 +1,26 @@
-.container-fluid{
-    height: 500px;
+
+.category-list{
+height: 100%;
+    display: inline-block;
 
 }
-.category-list{
-height: 500px;
+.left-label{
+
+    float: left;
+    font-size: 1.2rem;
+
+
+
+}
+.right-label{
+    margin-top: 4px;
+    float: right;
+    color: crimson;
+
+}
+.filter-label{
+    horiz-align: center;
+    height: 50px;
 }
 .slider{
     padding: 0px;
@@ -15,22 +32,33 @@ height: 500px;
 }
 .add-category{
     float: right;
+    margin-top: 16px;
+
 }
 .add-category:hover{
     color: crimson;
 }
-.category-label{
+
+
+
+.chip-list{
+    min-height: 100px;
     float: left;
-    width: auto;
-    display: inline;
+    margin-right: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    display: inline-block;
+
 }
 
-.add-category:hover .category-list{
-   background-color: black;
+
+.apply-button{
+    float: left;
+    width: 45%;
+
 }
-.category-list{
-}
-.chip-list{
-   margin-right: 0px;
-    margin-top: 20px;
+.reset-button{
+    float: right;
+    width: 45%;
 }

@@ -42,8 +42,9 @@ export class CatagoryPaneComponent implements OnInit {
   }
   onRemoveClick(category): void{
     this.removeItem(this.selectedCategories.indexOf(category));
-    this.selectedCategoryList.splice(this.selectedCategoryList.map((item)=>{return item.category}).indexOf( category),1);
-    this.selectedCategoryList.push({'category': category, 'checked': false})
+    this.selectedCategoryList
+        .filter((item)=> item.category == category)
+        .forEach((item)=>{item.checked = false});
   }
   removeItem(index): void{
     this.selectedCategories.splice(index, 1);
@@ -70,14 +71,16 @@ export class CategoryListDialogComponent {
     item.checked = !item.checked;
     if (item.checked === true){
       this.data.selectedCategories.push(item.category);
+
     }
     else {
       this.removeItem(this.data.selectedCategories.indexOf(item.category));
     }
+
 }
 
   removeItem(index): void{
-    this.data.selectedCategoryList.splice(index, 1);
+    this.data.selectedCategories.splice(index, 1);
   }
 
   constructor(
