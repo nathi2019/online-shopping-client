@@ -1,0 +1,59 @@
+
+<mat-card class="category-list">
+    <h1 >Filters </h1>
+    <hr>
+    <div class="filter-label">
+    <h2 class="left-label">Price </h2>
+    <mat-icon class="right-label">local_offer</mat-icon>
+    </div>
+    <span class="max-price-label">Min Price</span>
+    <span class="max-price">{{price.minPrice}} $</span>
+    <span></span>
+    <mat-slider
+
+            class="slider"
+            [(ngModel)]="price.minPrice"
+            max="1000"
+            step="20"
+            (input)="onChangeMin($event)"
+            min="0" ></mat-slider>
+
+    <span class="max-price-label">Max Price</span>
+    <span class="max-price">{{price.maxPrice}} $</span>
+    <span></span>
+    <mat-slider
+            class="slider"
+            [(ngModel)]="price.maxPrice"
+            max="2000"
+            step="20"
+            (input)="onChangeMax($event)"
+            min="1000" ></mat-slider>
+    <hr>
+    <div class="filter-label">
+       <h2 class="left-label">Category  </h2>
+        <mat-icon class="right-label">category</mat-icon>
+    </div>
+
+    <button  mat-icon-button class="add-category" (click)="openDialog()" >
+        <mat-icon>add</mat-icon>
+
+    </button>
+    <mat-chip-list class="chip-list" >
+
+        <mat-chip *ngFor="let category of selectedCategories"  selectable="true"
+                  removable="true" (removed)="onRemoveClick(category)">
+            {{category}}
+            <mat-icon matChipRemove >cancel</mat-icon>
+        </mat-chip>
+
+    </mat-chip-list>
+
+
+
+    <button class="apply-button" mat-raised-button color="accent" (click)="onApply()">Apply</button>
+
+    <button class="reset-button"mat-stroked-button color="accent" (click)="onReset()">Reset</button>
+
+</mat-card>
+
+

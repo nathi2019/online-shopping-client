@@ -1,0 +1,8 @@
+app-product-list{
+    float: right;
+    width: 80%;
+}
+app-catagory-pane{
+    float: left;
+    width: 20%;
+}

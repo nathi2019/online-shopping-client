@@ -1,0 +1,48 @@
+
+
+.remove-item {
+    visibility: hidden;
+}
+
+.remove-button:hover {
+    color: crimson;
+}
+
+img {
+    object-fit: fill;
+    height: 100%;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.right-side {
+    float: right;
+    width: 40%;
+    padding-top: 20px;
+}
+
+.left-side {
+    overflow: auto;
+    float: left;
+    width: 50%;
+    height: 200px;
+}
+.product-name{
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+.product-desc{
+    font-size: 0.7rem;
+    color: gray;
+    margin-bottom: 20px;
+
+}
+.product-price{
+
+    font-size: 0.8rem;
+}
+.remove-button {
+    margin-left: 20px;
+}

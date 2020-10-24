@@ -1,0 +1,31 @@
+.checkout-box{
+    padding: 40px;
+    height: 100%;
+
+    width: 100%;
+}
+.total-label{
+    float: left;
+    width: 50%;
+}
+
+.total-price{
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+.checkout-button{
+
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 4px;
+    margin-top: 30px;
+    width: 100%;
+    background-color: crimson;
+}
+.mat-card-actions
+{   margin-top: 50px;
+    text-align: center;
+
+}

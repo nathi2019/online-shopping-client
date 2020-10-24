@@ -1,0 +1,64 @@
+
+.category-list{
+height: 100%;
+    display: inline-block;
+
+}
+.left-label{
+
+    float: left;
+    font-size: 1.2rem;
+
+
+
+}
+.right-label{
+    margin-top: 4px;
+    float: right;
+    color: crimson;
+
+}
+.filter-label{
+    horiz-align: center;
+    height: 50px;
+}
+.slider{
+    padding: 0px;
+    width: 100%;
+}
+.max-price{
+    float: right;
+
+}
+.add-category{
+    float: right;
+    margin-top: 16px;
+
+}
+.add-category:hover{
+    color: crimson;
+}
+
+
+
+.chip-list{
+    min-height: 100px;
+    float: left;
+    margin-right: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    display: inline-block;
+
+}
+
+
+.apply-button{
+    float: left;
+    width: 45%;
+
+}
+.reset-button{
+    float: right;
+    width: 45%;
+}

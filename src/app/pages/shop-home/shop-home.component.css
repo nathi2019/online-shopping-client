@@ -1,3 +1,9 @@
+.outlet{
+ margin-top: 70px;
+    width: 100%;
+
+}
+.product-card {
 
 /* .product-card {
   width: 23%;
@@ -5,8 +11,11 @@
 }
 .main-display{
   padding: 10px;
+}
+app-page-footer{
 } */
 
+}
 /* .container {
   min-height: 100%;
   width: 100%;
