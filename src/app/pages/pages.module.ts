@@ -9,14 +9,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableModule} from '@angular/material/table';
-import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { SalesViewComponent } from './admin/sales-view/sales-view.component';
 import { ManageEmployeeComponent } from './admin/manage-employee/manage-employee.component';
@@ -41,7 +37,11 @@ import { ShopCockpitComponent } from './shop-home/shop-cockpit/shop-cockpit.comp
 import { MatSliderModule } from '@angular/material/slider';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatBadgeModule} from '@angular/material/badge';
 import { CartItemListComponent } from './shop-home/user-cart/cart-item-list/cart-item-list.component';
 import { CartItemComponent } from './shop-home/user-cart/cart-item-list/cart-item/cart-item.component';
@@ -72,7 +72,8 @@ import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/check
     CartItemListComponent,
     CartItemComponent,
     CheckoutPaneComponent],
-    
+
+
   imports: [
     CommonModule,
     FormsModule,
@@ -95,12 +96,12 @@ import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/check
     MatSliderModule,
     MatSelectModule,
     MatChipsModule,
-      MatInputModule,
-      MatFormFieldModule,
-      MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDialogModule,
     MatCheckboxModule,
     MatBadgeModule,
-      FormsModule,
+    FormsModule,
     MatListModule
 
   ],
@@ -109,9 +110,16 @@ import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/check
             CatagoryPaneComponent,
             ProductListComponent,
             UserCartComponent,
-            ShopHomeComponent
+            ShopHomeComponent,
           ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
 
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  // exports: [AdminHomeComponent,
+  //   SalesViewComponent,
+  //   UserCartComponent,
+  //   ShopHomeComponent,
+
+  // ],
+ 
 })
 export class PagesModule { }
