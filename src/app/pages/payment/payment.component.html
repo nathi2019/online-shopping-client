@@ -1,1 +1,8 @@
-<p>payment works!</p>
+<form (submit)="handleForm($event)">
+
+  <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+
+  <button mat-raised-button style="margin-top: 4%;">Buy for ${{ amount / 100 }}.00</button>
+
+</form>
+

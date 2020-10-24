@@ -1,0 +1,58 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="5%" fxLayoutAlign="center">
+
+    <mat-card>
+        <mat-card-title> Create account</mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="signUpForm" (ngSubmit)="onSignUpButtonPressed()">
+                <p>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Your name" formControlName="name">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Email" formControlName="email">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input matInput type="password" matInput placeholder="Password" formControlName="password">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <input matInput type="password" matInput placeholder="Re-enter password"
+                            formControlName="passwordRepeat">
+                    </mat-form-field>
+                </p>
+
+
+                <div *ngIf="error" fxLayout="column" fxLayout.xs="row" fxLayoutGap="5%" fxLayoutAlign="center">
+                    <p *ngIf="error" class="error">
+                        {{ error }}
+                    </p>
+
+                    <a mat-button> Forgot password ?</a>
+
+                </div>
+
+
+                <mat-checkbox class="vendor-pay-checkbox" (change)="onSignUpAsVendorChecked($event)">Sign up as vendor
+                </mat-checkbox>
+                <div *ngIf="signUpAsVendor" style="margin: 4%;">
+                    <app-payment [amount]="100" description="meat"></app-payment>
+                </div>
+
+
+                <div class="button">
+                    <button type="submit" mat-button>Create your eLegant account</button>
+                </div>
+
+            </form>
+
+        </mat-card-content>
+    </mat-card>
+
+
+
+</div>

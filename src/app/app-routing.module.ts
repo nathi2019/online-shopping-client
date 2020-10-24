@@ -6,6 +6,10 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 import { ShopHomeComponent } from './pages/shop-home/shop-home.component';
 import {ShopCockpitComponent} from './pages/shop-home/shop-cockpit/shop-cockpit.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import {PaymentComponent} from './pages/payment/payment.component';
+
 
 
 const routes: Routes = [
@@ -16,11 +20,15 @@ const routes: Routes = [
     children: [
       { path: '', component: ShopCockpitComponent },
       { path: 'orders', component: OrderComponent },
+           { path: 'orders', component: OrderComponent },
       { path: 'cart', component: UserCartComponent },
-      { path: 'edit-profile', component: EditProfileComponent }
+      { path: 'edit-profile', component: EditProfileComponent },
+
     ],
     component: ShopHomeComponent,
   },
+  { path: 'login', component: LoginComponent },
+  { path: 'sign-up', component: SignupComponent },
 
 
 ];
