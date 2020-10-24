@@ -8,20 +8,19 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedService} from './services/shared.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    PagesModule,
-    BrowserAnimationsModule,
-    SharedService,
- 
-    
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        PagesModule,
+        BrowserAnimationsModule,
+        MatToolbarModule
+    ],
+    providers: [SharedService],
+    bootstrap: [AppComponent]
+
 })
 export class AppModule {
 }
