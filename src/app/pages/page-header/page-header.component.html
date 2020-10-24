@@ -1,14 +1,14 @@
 <mat-toolbar id="navbar">
 
 
-    <h1  (click)="onHomeButtonClicked()" class="brand-text"> Elegant Shop </h1>
+    <h1 (click)="onHomeButtonClicked()" class="brand-text"> Elegant Shop </h1>
 
     <span class="toolbar-spacer"></span>
 
     <form #searchForm="ngForm" (ngSubmit)="onSearch(searchForm.value)">
-        <input name="searchValue"  class="form-control search-input" type="text" placeholder="Search in products"
-               ngModel>
-        <button type="submit" class="search-button" mat-stroked-button mat-button >
+        <input name="searchValue" class="form-control search-input" type="text" placeholder="Search in products"
+            ngModel>
+        <button type="submit" class="search-button" mat-stroked-button mat-button>
             <mat-icon>search</mat-icon>
 
         </button>

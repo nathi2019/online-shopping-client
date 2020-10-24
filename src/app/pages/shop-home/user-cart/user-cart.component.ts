@@ -1,9 +1,9 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {Observable} from 'rxjs';
-import {CartService} from '../../../services/cart.service';
-import {DataSource} from '@angular/cdk/collections';
-import {Cart} from 'src/app/models';
-import {SharedService} from 'src/app/services/shared.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CartService } from '../../../services/cart.service';
+import { DataSource } from '@angular/cdk/collections';
+import { Cart } from 'src/app/models';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
     selector: 'app-user-cart',
@@ -14,6 +14,7 @@ export class UserCartComponent implements OnInit {
     @Input() cartList: Cart[] = this.sharedService.cartList;
     dataSource = new CartDataSource(this.cartService);
     displayedColumns = ['name', 'email', 'phone', 'company'];
+
 
     constructor(private cartService: CartService, private sharedService: SharedService) {
     }
