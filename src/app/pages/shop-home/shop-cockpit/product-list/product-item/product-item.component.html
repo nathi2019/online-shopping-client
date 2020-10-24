@@ -24,7 +24,7 @@
       <span class="price-down">{{product.price | number:'1.0-0'}}</span>
       <span class="price-top">00</span>
     </div>
-    <button class="add-to-cart"mat-icon-button  aria-label="Example icon button with a menu icon">
+    <button class="add-to-cart"mat-icon-button  (click)="onAdd()">
       <mat-icon>add_shopping_cart</mat-icon>
 
     </button>

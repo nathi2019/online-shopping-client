@@ -1,0 +1,23 @@
+<div class="container-fluid">
+
+<mat-card class="checkout-box" *ngIf="cartList.length !== 0">
+    <div *ngFor="let cart of cartList">
+        <h4 class="total-label"> {{cart.quantity}} x {{cart.product.price}}  </h4>
+        <h4 class="total-price">{{cart.quantity * cart.product.price | number:'1.0-2'}} $</h4>
+
+    </div>
+
+    <h4 class="total-label"> Tax</h4>
+    <h4 class="total-price">{{calculateTotal() * .07 | number:'1.0-2'}} $</h4>
+
+                        <h1 class="total-label">Total</h1>
+        <h1 class="total-price">{{calculateTotal() * 1.07 | number:'1.0-2'}} $</h1>
+
+
+
+        <button class="checkout-button" mat-raised-button color="accent"(click)="onCheckout()">CONTINUE TO CHECKOUT</button>
+
+
+
+</mat-card>
+</div>

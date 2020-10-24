@@ -1,0 +1,10 @@
+app-cart-item-list{
+    float: left;
+    width: 60%;
+}
+app-checkout-pane{
+    float: right;
+    width: 40%;
+    padding-right: 5%;
+
+}

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="left-side">
+
+
+        <img src="{{cartItem.product.imageUrl}}">
+
+
+    </div>
+    <div class="right-side">
+
+        <h3 class="product-name">{{cartItem.product.name}}</h3>
+        <p class="product-desc">{{cartItem.product.description}}</p>
+        <span class="product-price">{{cartItem.product.price}} $</span>
+
+        <br>
+        <hr>
+        <select [(ngModel)]="cartItem.quantity">
+            <option *ngFor="let item of range(1,cartItem.product.inStockQuantity)">{{item}}</option>
+        </select>
+
+        <button mat-icon-button class="remove-button" (click)="onRemove()">
+            <mat-icon>remove_shopping_cart</mat-icon>
+
+        </button>
+    </div>
+
+</div>

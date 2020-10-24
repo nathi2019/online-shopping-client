@@ -7,23 +7,23 @@
     <mat-icon class="right-label">local_offer</mat-icon>
     </div>
     <span class="max-price-label">Min Price</span>
-    <span class="max-price">{{minValue}} $</span>
+    <span class="max-price">{{price.minPrice}} $</span>
     <span></span>
     <mat-slider
 
             class="slider"
-            [(ngModel)]="minValue"
+            [(ngModel)]="price.minPrice"
             max="1000"
             step="20"
             (input)="onChangeMin($event)"
             min="0" ></mat-slider>
 
     <span class="max-price-label">Max Price</span>
-    <span class="max-price">{{maxValue}} $</span>
+    <span class="max-price">{{price.maxPrice}} $</span>
     <span></span>
     <mat-slider
             class="slider"
-            [(ngModel)]="maxValue"
+            [(ngModel)]="price.maxPrice"
             max="2000"
             step="20"
             (input)="onChangeMax($event)"
@@ -50,9 +50,9 @@
 
 
 
-    <button class="apply-button" mat-raised-button color="accent">Apply</button>
+    <button class="apply-button" mat-raised-button color="accent" (click)="onApply()">Apply</button>
 
-    <button class="reset-button"mat-stroked-button color="accent">Reset</button>
+    <button class="reset-button"mat-stroked-button color="accent" (click)="onReset()">Reset</button>
 
 </mat-card>
 

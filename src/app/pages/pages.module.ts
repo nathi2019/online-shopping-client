@@ -43,6 +43,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 import {MatBadgeModule} from '@angular/material/badge';
+import { CartItemListComponent } from './shop-home/user-cart/cart-item-list/cart-item-list.component';
+import { CartItemComponent } from './shop-home/user-cart/cart-item-list/cart-item/cart-item.component';
+import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/checkout-pane.component';
 
 
 
@@ -65,7 +68,10 @@ import {MatBadgeModule} from '@angular/material/badge';
       PageFooterComponent,
       ProductItemComponent,
       ShopCockpitComponent,
-    CategoryListDialogComponent],
+    CategoryListDialogComponent,
+    CartItemListComponent,
+    CartItemComponent,
+    CheckoutPaneComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -89,7 +95,10 @@ import {MatBadgeModule} from '@angular/material/badge';
       MatFormFieldModule,
       MatDialogModule,
     MatCheckboxModule,
-    MatBadgeModule
+    MatBadgeModule,
+      FormsModule,
+    MatListModule
+
   ],
   exports: [AdminHomeComponent,
             SalesViewComponent,

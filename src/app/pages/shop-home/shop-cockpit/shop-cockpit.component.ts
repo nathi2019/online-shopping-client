@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from 'src/app/models';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-shop-cockpit',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopCockpitComponent implements OnInit {
 
-  constructor() { }
+  products: Product[] = this.sharedService.productList;
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {
 
