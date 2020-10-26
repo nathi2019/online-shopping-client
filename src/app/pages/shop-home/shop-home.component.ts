@@ -1,6 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {Router} from '@angular/router';
-import {Product} from 'src/app/models';
+import {Component, OnInit} from '@angular/core';
 import {SharedService} from 'src/app/services/shared.service';
 
 @Component({
@@ -25,42 +23,48 @@ export class ShopHomeComponent implements OnInit {
 
     initProducts(): void {
         this.sharedService.productList = [
-            {
-                name: 'Mac Pro ',
-                price: 33.15,
-                description: 'new Computer made by apple',
-                imageUrl: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16touch-space-select-201911?wid=892&hei=820&&qlt=80&.v=1572825197207',
-                inStockQuantity: 10
-            },
-            {
-                name: 'Mac Pro ',
-                price: 33.15,
-                description: 'new Computer made by apple',
-                imageUrl: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16touch-space-select-201911?wid=892&hei=820&&qlt=80&.v=1572825197207',
-                inStockQuantity: 10
-            },
-            {
-                name: 'Mac Pro ',
-                price: 150.15,
-                description: 'new Computer made by apple',
-                imageUrl: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16touch-space-select-201911?wid=892&hei=820&&qlt=80&.v=1572825197207',
-                inStockQuantity: 10
-            },
-            {
-                name: 'Mac Pro ',
-                price: 33.15,
-                description: 'new Computer made by apple',
-                imageUrl: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16touch-space-select-201911?wid=892&hei=820&&qlt=80&.v=1572825197207',
-                inStockQuantity: 10
+          {
+            name: 'Pikeur Omira ',
+            price: 38,
+            description: 'Parka with Detachable Hood and Detachable Imitation Fur\n',
+            imageUrl: 'https://www.amirashop.co.uk/acatalog/Pikeur-19AW-Omira-132150-1-1000.jpg',
+            category: 'Coat',
+            inStockQuantity: 10
+          },
+          {
+            name: 'Spiza ',
+            price: 45,
+            description: 'Two Lengths Women Warm Down Winter Coat',
+            imageUrl: 'https://fluffkidswear.com/wp-content/uploads/2019/09/model13_czarny_01.jpg',
+            category: 'Coat',
+            inStockQuantity: 10,
 
-            },
-            {
-                name: 'Mac Pro ',
-                price: 33.15,
-                description: 'new Computer made by apple',
-                imageUrl: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16touch-space-select-201911?wid=892&hei=820&&qlt=80&.v=1572825197207',
-                inStockQuantity: 10
-            }
+          },
+          {
+            name: 'Elegant  ',
+            price: 150,
+            description: 'Women Wool Coat Elegant Warm Long Coat',
+            imageUrl: 'https://erhiem.com/wp-content/uploads/2020/03/0-8db9ef-640x640.jpeg',
+            category: 'Coat',
+            inStockQuantity: 10
+          },
+          {
+            name: 'Johnson Leather',
+            price: 170,
+            description: 'Men Black Johnson Leather Jacket',
+            imageUrl: 'https://www.thegenuineleather.com/wp-content/uploads/2019/08/Black-leather-jacket-for-men-1.jpg',
+            category: 'Jacket',
+            inStockQuantity: 10
+
+          },
+          {
+            name: 'CirrusLite',
+            price: 195,
+            description: 'his down jacket is a consummate traveler',
+            imageUrl: 'https://eddiebauer.scene7.com/is/image/EddieBauer/D0010032_100C1?$328V1$',
+            category: 'Jacket',
+            inStockQuantity: 10
+          }
         ];
     }
 

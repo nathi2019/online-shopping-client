@@ -7,13 +7,12 @@ export class SharedService {
     cartList: Cart[];
     selectedCategories: string[];
     selectedCategoryList: { category: string, checked: boolean }[];
-    categoryList: string[] = ['elecronic', 'laptop', 'health', 'sport',
-        'elecronic1', 'laptop1', 'health1', 'sport1'];
+    categoryList: string[] = ['Camis' , 'Dress', 'Formal Dress', 'Pant Suit', 'Coat', 'Skirt', 'T-shirt', 'Polo', 'Shirt', 'Vest', 'Jacket', 'Trendy Man', 'Suit', 'Sweater'];
 
-    price: {minPrice: number, maxPrice:number} =  {minPrice: 0, maxPrice:2000};
+    price: {minPrice: number, maxPrice: number} =  {minPrice: 0, maxPrice: 2000};
     initFilters(): void {
-        this.selectedCategoryList = this.categoryList.map((category) => {
-            return {category: category, checked: false};
+        this.selectedCategoryList = this.categoryList.map((categ) => {
+            return { category : categ, checked: false};
         });
         this.selectedCategories = new Array();
         this.price.minPrice = 0;
