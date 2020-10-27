@@ -1,6 +1,23 @@
 .footer{
     margin:2% 2%;
-
-
 }
 
+.footer-container {
+  background-color: snow;
+  position: absolute;
+  left: 0;
+  /*bottom: 0;*/
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+
+  margin-top: 10px;
+  -webkit-box-shadow: 0px 0px 12px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 0px 12px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 12px rgba(50, 50, 50, 0.75);
+
+}
+.footer-inner {
+  width: 64%;
+  margin: auto;
+}

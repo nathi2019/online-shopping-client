@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="userDetailsForm" (ngSubmit)="onSignUpButtonPressed()">
+      <p>
+        <mat-form-field>
+          <input matInput type="text" matInput placeholder="Update Street" formControlName="street">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Update your city" formControlName="city">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Update state" formControlName="state">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input matInput type="text" matInput placeholder="Update zipCode" formControlName="zipCode">
+        </mat-form-field>
+      </p>
+
+
+      <div fxLayout="column" fxLayout.xs="row" fxLayoutGap="5%" fxLayoutAlign="center">
+        <p *ngIf="error" class="error">
+          {{ error }}
+        </p>
+        <p *ngIf="success" class="alert-success">
+          {{ success }}
+        </p>
+      </div>
+
+      <div class="button">
+        <button mat-raised-button color="primary" type="submit" mat-button>Update</button>
+      </div>
+
+    </form>
+
+  </mat-card-content>
+</mat-card>

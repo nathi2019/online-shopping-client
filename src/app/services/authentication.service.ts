@@ -14,7 +14,6 @@ export class AuthenticationService {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-
   public getCurrentUser() {
     return this.currentUser;
   }
@@ -26,7 +25,7 @@ export class AuthenticationService {
   login(username: string, password: string) {
     return this.http.post<ApiResponse>(environment.API_URL + "api/auth/login", { username, password })
       .pipe(map(response => {
-        //login is succesfull if there is a jwt token 
+        //login is succesfull if there is a jwt token
         if (response && response.result.access_token) {
           localStorage.setItem('currentUser ', JSON.stringify(response.result));
           this.currentUser = response.result;
