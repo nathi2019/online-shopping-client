@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         response => {
-          const user = new User
+          //const user = new User
           //if you want to display success message, set it her
           this.router.navigate([this.returnUrl]);
         },
