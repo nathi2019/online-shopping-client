@@ -9,21 +9,22 @@ import {ShopCockpitComponent} from './pages/shop-home/shop-cockpit/shop-cockpit.
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import {PaymentComponent} from './pages/payment/payment.component';
+import {UserDetailsComponent} from "./pages/user-details/user-details.component";
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'shop-home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'admin', component: AdminHomeComponent },
   {
-    path: 'shop-home',
+    path: 'home',
     children: [
       { path: '', component: ShopCockpitComponent },
       { path: 'orders', component: OrderComponent },
            { path: 'orders', component: OrderComponent },
       { path: 'cart', component: UserCartComponent },
       { path: 'edit-profile', component: EditProfileComponent },
-
+      { path: 'user-details', component: UserDetailsComponent }
     ],
     component: ShopHomeComponent,
   },
