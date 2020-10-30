@@ -46,6 +46,11 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { CartItemListComponent } from './shop-home/user-cart/cart-item-list/cart-item-list.component';
 import { CartItemComponent } from './shop-home/user-cart/cart-item-list/cart-item/cart-item.component';
 import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/checkout-pane.component';
+import { VendorHomeComponent } from './vendor-home/vendor-home.component';
+import { StatusPaneComponent } from './vendor-home/status-pane/status-pane.component';
+import { VendorProductListComponent } from './vendor-home/vendor-product-list/vendor-product-list.component';
+import { VendorProductItemComponent } from './vendor-home/vendor-product-list/vendor-product-item/vendor-product-item.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -71,7 +76,11 @@ import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/check
     CategoryListDialogComponent,
     CartItemListComponent,
     CartItemComponent,
-    CheckoutPaneComponent],
+    CheckoutPaneComponent,
+    VendorHomeComponent,
+    StatusPaneComponent,
+    VendorProductListComponent,
+    VendorProductItemComponent],
 
 
   imports: [
@@ -102,7 +111,8 @@ import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/check
     MatCheckboxModule,
     MatBadgeModule,
     FormsModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule
 
   ],
   exports: [AdminHomeComponent,
@@ -120,6 +130,6 @@ import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/check
   //   ShopHomeComponent,
 
   // ],
- 
+
 })
 export class PagesModule { }

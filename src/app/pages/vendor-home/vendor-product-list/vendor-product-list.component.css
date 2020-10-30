@@ -1,0 +1,13 @@
+.mat-card {
+  box-shadow: 0 8px 8px 8px rgba(0, 0, 0, .2), 0 8px 8px 0 rgba(0, 0, 0, .14), 0 8px 8px 0 rgba(0, 0, 0, .12) !important;
+}
+
+li {
+  margin-bottom: 30px;
+
+}
+
+
+li:hover .actions {
+  visibility: visible;
+}

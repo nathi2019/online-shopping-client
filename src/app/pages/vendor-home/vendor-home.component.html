@@ -1,0 +1,11 @@
+<div class="status-bar">
+<app-status-pane [vendor]="vendor"></app-status-pane>
+</div>
+<div class="active-products">
+
+  <app-vendor-product-list [label]="active" [products]="vendor.products"></app-vendor-product-list>
+</div>
+<div class="pending-products">
+  <app-vendor-product-list [label]="pending" [products]="vendor.products"></app-vendor-product-list>
+</div>
+
