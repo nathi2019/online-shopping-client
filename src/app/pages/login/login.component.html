@@ -1,45 +1,44 @@
-<div fxLayout="column" fxLayout.xs="row" fxLayoutGap="5%" fxLayoutAlign="center">
+   <div class="container-fluid" >
     <mat-card>
-        <mat-card-title> eLegant</mat-card-title>
-        <mat-card-content>
-            <form [formGroup]="loginForm" (ngSubmit)="onLoginButtonPressed()">
-                <p>
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Username" formControlName="username">
-                    </mat-form-field>
-                </p>
+      <mat-card-title><h1 class="brand-Label">Elegant Shop</h1></mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginButtonPressed()">
 
-                <p>
-                    <mat-form-field>
-                        <input matInput type="password" matInput placeholder="Password" formControlName="password">
-                    </mat-form-field>
-                </p>
+          <mat-form-field class="username">
+            <input type="text" matInput placeholder="Username" formControlName="username">
+            <mat-icon matSuffix>account_circle</mat-icon>
+          </mat-form-field>
 
 
-                <div *ngIf="error" fxLayout="column" fxLayout.xs="row" fxLayoutGap="5%" fxLayoutAlign="center">
-                    <p *ngIf="error" class="error">
-                        {{ error }}
-                    </p>
-                    
-                    <a  mat-button> Forgot password ?</a>
+          <mat-form-field class="password">
+            <input matInput type="password" matInput placeholder="Password" formControlName="password">
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
 
-                </div>
+          <a class="forgot-password"> Forgot password ?</a>
 
+          <div *ngIf="error">
+            <p *ngIf="error" class="error">
+              {{ error }}
 
-
-                <div class="button">
-                    <button type="submit" mat-button>Login</button>
-                </div>
-
-            </form>
+            </p>
+          </div>
 
 
+          <br>
 
-        </mat-card-content>
+
+          <button mat-raised-button  class="login-button" type="submit" color="accent">Login</button>
+
+
+        </form>
+
+        <hr>
+        <p class="sign-up" >Don't have a login ? <a >sign up</a></p>
+      </mat-card-content>
+
+
     </mat-card>
-
-    <p style="text-align: center;">Do not have an account?</p>
-    <button mat-raised-button>Sign Up</button>
+   </div>
 
 
-</div>

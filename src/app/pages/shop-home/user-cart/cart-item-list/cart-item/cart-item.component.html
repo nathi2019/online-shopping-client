@@ -2,7 +2,7 @@
     <div class="left-side">
 
 
-        <img src="{{cartItem.product.imageUrl}}">
+        <img src="{{cartItem.product.imageUrl[0]}}">
 
 
     </div>
@@ -10,7 +10,7 @@
 
         <h3 class="product-name">{{cartItem.product.name}}</h3>
         <p class="product-desc">{{cartItem.product.description}}</p>
-        <span class="product-price">{{cartItem.product.price}} $</span>
+        <span class="product-price">${{cartItem.product.price}}</span>
 
         <br>
         <hr>

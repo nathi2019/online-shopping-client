@@ -1,0 +1,19 @@
+<mat-card>
+  <h3>{{label}}</h3>
+  <hr>
+  <div class="container-fluid">
+
+    <ul class="list-group">
+
+      <li class="list-group-item" *ngFor="let product of products">
+
+
+
+        <app-vendor-product-item (delete)="onDelete($event)" [product]="product"></app-vendor-product-item>
+      </li>
+
+    </ul>
+
+
+  </div>
+</mat-card>

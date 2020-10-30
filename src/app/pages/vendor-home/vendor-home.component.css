@@ -1,0 +1,17 @@
+.active-products {
+  float: left;
+  width: 48.5%;
+  margin-left: 1%;
+}
+
+.pending-products {
+  float: right;
+  width: 48.5%;
+  margin-right: 1%;
+
+}
+
+.status-bar {
+
+  margin: 1%;
+}

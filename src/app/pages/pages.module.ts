@@ -1,4 +1,4 @@
-import { BrowserModule}from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -49,6 +49,12 @@ import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/check
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { CardComponent } from './shared/card/card.component';
 import { AddressComponent } from './shared/address/address.component';
+import { VendorHomeComponent } from './vendor-home/vendor-home.component';
+import { StatusPaneComponent } from './vendor-home/status-pane/status-pane.component';
+import { VendorProductListComponent } from './vendor-home/vendor-product-list/vendor-product-list.component';
+import { VendorProductItemComponent } from './vendor-home/vendor-product-list/vendor-product-item/vendor-product-item.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 
@@ -77,7 +83,11 @@ import { AddressComponent } from './shared/address/address.component';
     CheckoutPaneComponent,
     UserDetailsComponent,
     CardComponent,
-    AddressComponent],
+    AddressComponent,
+    VendorHomeComponent,
+    StatusPaneComponent,
+    VendorProductListComponent,
+    VendorProductItemComponent],
 
 
     imports: [
@@ -109,8 +119,8 @@ import { AddressComponent } from './shared/address/address.component';
         MatBadgeModule,
         FormsModule,
         MatListModule,
-        MatTabsModule
-
+        MatTabsModule,
+      MatExpansionModule
     ],
   exports: [AdminHomeComponent,
             SalesViewComponent,
