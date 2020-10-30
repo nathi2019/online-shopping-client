@@ -46,6 +46,9 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { CartItemListComponent } from './shop-home/user-cart/cart-item-list/cart-item-list.component';
 import { CartItemComponent } from './shop-home/user-cart/cart-item-list/cart-item/cart-item.component';
 import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/checkout-pane.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { CardComponent } from './shared/card/card.component';
+import { AddressComponent } from './shared/address/address.component';
 
 
 
@@ -71,40 +74,44 @@ import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/check
     CategoryListDialogComponent,
     CartItemListComponent,
     CartItemComponent,
-    CheckoutPaneComponent],
+    CheckoutPaneComponent,
+    UserDetailsComponent,
+    CardComponent,
+    AddressComponent],
 
 
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatInputModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatListModule,
-    MatButtonModule,
-    MatCardModule,
-    MatPaginatorModule,
-    MatTableModule,
-    MatSliderModule,
-    MatSelectModule,
-    MatChipsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatCheckboxModule,
-    MatBadgeModule,
-    FormsModule,
-    MatListModule
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatInputModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatListModule,
+        MatButtonModule,
+        MatCardModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatSliderModule,
+        MatSelectModule,
+        MatChipsModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatDialogModule,
+        MatCheckboxModule,
+        MatBadgeModule,
+        FormsModule,
+        MatListModule,
+        MatTabsModule
 
-  ],
+    ],
   exports: [AdminHomeComponent,
             SalesViewComponent,
             CatagoryPaneComponent,
@@ -120,6 +127,6 @@ import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/check
   //   ShopHomeComponent,
 
   // ],
- 
+
 })
 export class PagesModule { }
