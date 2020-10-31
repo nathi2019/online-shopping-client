@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {ApiResponse} from '../util/response';
 import {Observable} from 'rxjs';
-import {Product, ProductResponse, ProductUpload} from '../models';
+import {Product, ProductRequest, ProductResponse} from '../models';
 import {SharedService} from './shared.service';
 import {map} from 'rxjs/operators';
 
@@ -18,17 +18,21 @@ export class ProductService {
   productFilesUploadUrl = environment.API_URL + '/product/upload';
   pendingPorductUrl = environment.API_URL + '/product/pending/';
   activeProductUrl = environment.API_URL + '/product/active/';
-
+  productsUrl = environment.API_URL + 'products';
+  productList: Product[];
 
   constructor(private http: HttpClient, private sharedService: SharedService) {
   }
 
-  getAllProducts(): Observable<any> {
-    return this.http.get<ApiResponse>(environment.API_URL + '/products');
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<ProductResponse>(environment.API_URL + '/products')
+      .pipe(map(response => {
+        return response.products;
+      }));
   }
 
   getOneProduct(id: string): Observable<any> {
-    return this.http.get<ApiResponse>(environment.API_URL + '/products/' + id);
+    return this.http.get<ApiResponse>(this.productUrl + id);
   }
 
   deleteProduct(id: number): Observable<any> {
@@ -39,7 +43,7 @@ export class ProductService {
     return this.http.put(this.productUrl + product.id, product);
   }
 
-  createProduct(product: ProductUpload): Observable<any> {
+  createProduct(product: ProductRequest): Observable<any> {
     product.vendorId = this.sharedService.vendorId;
     console.log(product);
     return this.http.post(this.productUrl, product);

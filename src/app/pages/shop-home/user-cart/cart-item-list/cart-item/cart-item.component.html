@@ -15,7 +15,7 @@
         <br>
         <hr>
         <select [(ngModel)]="cartItem.quantity">
-            <option *ngFor="let item of range(1,cartItem.product.inStockQuantity)">{{item}}</option>
+            <option *ngFor="let item of range(1,cartItem.product.inStockQuantity)" value="{{item}}">{{item}}</option>
         </select>
 
         <button mat-icon-button class="remove-button" (click)="onRemove()">

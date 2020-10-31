@@ -12,18 +12,10 @@ export class ProductListComponent implements OnInit {
 
     @Input() products: Product[] ;
 
-    constructor(private productService: ProductService) {
+    constructor() {
     }
 
     ngOnInit(): void {
-        this.productService.getAllProducts().pipe(first())
-            .subscribe(response => {
-                if (response.status == 500) {
-                    console.log(response.message);
-                } else {
-                    this.products = response.result;
-                }
-            })
 
     }
 

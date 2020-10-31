@@ -6,9 +6,8 @@ import {EditProfileComponent} from './pages/edit-profile/edit-profile.component'
 import {AdminHomeComponent} from './pages/admin/admin-home/admin-home.component';
 import {ShopHomeComponent} from './pages/shop-home/shop-home.component';
 import {ShopCockpitComponent} from './pages/shop-home/shop-cockpit/shop-cockpit.component';
-import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
-import {PaymentComponent} from './pages/payment/payment.component';
+import {LoginComponent} from './pages/login/login.component';
+import {SignupComponent} from './pages/signup/signup.component';
 import {UserDetailsComponent} from './pages/user-details/user-details.component';
 import {VendorHomeComponent} from './pages/vendor-home/vendor-home.component';
 
@@ -21,12 +20,12 @@ const routes: Routes = [
     path: 'home',
     children: [
 
-      {path: 'x', component: ShopCockpitComponent},
-      {path: '', component: VendorHomeComponent},
+      {path: '', component: ShopCockpitComponent},
+      {path: 'x', component: VendorHomeComponent},
       {path: 'orders', component: OrderComponent},
       {path: 'cart', component: UserCartComponent},
       {path: 'edit-profile', component: EditProfileComponent},
-      { path: 'user-details', component: UserDetailsComponent }
+      {path: 'user-details', component: UserDetailsComponent}
 
     ],
     component: ShopHomeComponent,

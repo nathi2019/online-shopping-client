@@ -24,8 +24,8 @@ export class PageHeaderComponent implements OnInit {
     calculateNumItems(): number {
 
         return (this.cartList.length === 0) ? 0 : this.cartList.map(cart => cart.quantity).reduce((a, b) => {
-            return a + b;
-        })
+            return Number(a) + Number(b);
+        });
     }
 
     onSearch(value: any): void {
@@ -41,7 +41,7 @@ export class PageHeaderComponent implements OnInit {
     }
 
     onCartButtonClicked() {
-        this.router.navigate(['shop-home/cart']);
+        this.router.navigate(['home/cart']);
     }
 
     onEditProfileButtonClicked() {

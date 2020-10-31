@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
   <div class="row">
     <div class="col-3">
@@ -36,9 +36,10 @@
         </textarea>
       </mat-form-field>
     </div>
+
     <div class="col-4">
       <input style="display: none" type="file" multiple (change)="onFileChanged($event)" #fileInput>
-      <button mat-button (click)="fileInput.click()">Add an image</button>
+      <button mat-button (click)="fileInput.click()">Add images</button>
     </div>
   </div>
   <hr>

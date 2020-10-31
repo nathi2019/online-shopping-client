@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {PagesModule} from './pages/pages.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedService} from './services/shared.service';
+import {ProductService} from './services';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,7 @@ import {SharedService} from './services/shared.service';
         BrowserAnimationsModule,
         MatToolbarModule
     ],
-    providers: [SharedService],
+    providers: [ProductService , SharedService],
     bootstrap: [AppComponent]
 
 })

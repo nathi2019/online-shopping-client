@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Product } from 'src/app/models';
-import { SharedService } from 'src/app/services/shared.service';
+import {Component, OnInit} from '@angular/core';
+import {Product} from 'src/app/models';
+import {SharedService} from 'src/app/services/shared.service';
+import {ProductService} from '../../../services';
 
 @Component({
   selector: 'app-shop-cockpit',
@@ -9,8 +10,13 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class ShopCockpitComponent implements OnInit {
 
-  products: Product[] = this.sharedService.productList;
-  constructor(private sharedService: SharedService) { }
+  products: Product[];
+
+  constructor( private productService: ProductService) {
+    this.productService.getAllProducts()
+      .subscribe(products => this.products = products , error => console.log(error.status));
+
+  }
 
   ngOnInit(): void {
 

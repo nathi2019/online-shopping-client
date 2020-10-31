@@ -1,4 +1,4 @@
-export interface ProductUpload {
+export interface ProductRequest {
   vendorId: number;
   name: string;
   price: number;
