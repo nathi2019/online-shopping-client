@@ -54,6 +54,7 @@ import { StatusPaneComponent } from './vendor-home/status-pane/status-pane.compo
 import { VendorProductListComponent } from './vendor-home/vendor-product-list/vendor-product-list.component';
 import { VendorProductItemComponent } from './vendor-home/vendor-product-list/vendor-product-item/vendor-product-item.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { AddProductComponent } from './vendor-home/add-product/add-product.component';
 
 
 
@@ -87,7 +88,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     VendorHomeComponent,
     StatusPaneComponent,
     VendorProductListComponent,
-    VendorProductItemComponent],
+    VendorProductItemComponent,
+    AddProductComponent],
 
 
     imports: [

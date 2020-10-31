@@ -8,7 +8,7 @@ export interface User{
     email: string;
     password: string;
     iamgeUrl: string;
-    address: Address;
-    card: Card;
+    // address: Address;
+    // card: Card;
 
 }

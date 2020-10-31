@@ -6,6 +6,4 @@ export interface Product {
   imageUrl: string[];
   inStockQuantity: number;
   category: string;
-
-
 }

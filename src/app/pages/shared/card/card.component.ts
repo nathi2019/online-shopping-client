@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from "../../../services";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../../models";
-import {Card} from "../../../models";
+import {AuthenticationService} from '../../../services';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {User} from '../../../models';
+import {Card} from '../../../models';
 
 @Component({
   selector: 'app-card',
@@ -14,7 +14,7 @@ export class CardComponent implements OnInit {
   user: User;
   card: Card;
   userDetailsForm: FormGroup;
-  hide: true;
+  hide = true;
   success;
 
   constructor(private authService: AuthenticationService, private formBuilder: FormBuilder) { }

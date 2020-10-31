@@ -10,14 +10,14 @@ export class ShopHomeComponent implements OnInit {
 
     constructor(private sharedService: SharedService) {
         this.initProducts();
-        this.initCart()
+        this.initCart();
         this.sharedService.initFilters();
     }
 
     ngOnInit(): void {
     }
 
-    onSearchHeaderClicked(searchValue: string) {
+    onSearchHeaderClicked(searchValue: string): void {
         console.log(searchValue);
     }
 

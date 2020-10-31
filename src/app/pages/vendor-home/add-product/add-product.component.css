@@ -1,47 +1,6 @@
-
-.row {
-  margin-bottom: 40px;
-
-
-}
-input[disabled]{
-  color: black;
-}
-
-textarea[disabled]{
-  color: black;
-}
 .mat-form-field{
   width: 100%;
 }
-.product-id {
-  position: absolute;
-
-
-  left: 0px;
-  top: 0px;
-  margin: 5px;
-}
-
-.actions {
-  margin: 5px;
-  position: absolute;
-  right: 0px;
-  top: -5px;
-  visibility: hidden;
-
-
-
-
-}
-
-button:hover {
-  color: red;
-}
-.container:hover .actions{
-  visibility: visible;
-}
-
 
 img {
   object-fit: cover;
@@ -52,9 +11,19 @@ img {
   display: block;
   transition: transform .4s;
 }
+.col{
+}
+.actions{
+  margin-top: 30px;
+  width: 100%;
+}
+.row{
+  margin-bottom: 30px;
+}
 
-
-
+.add-button{
+  width: 100%;
+}
 .img-hover{
   transition: transform .2s;
 }

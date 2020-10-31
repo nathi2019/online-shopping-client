@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../../../../models';
 import {ProductService} from '../../../../services';
+import {SharedService} from '../../../../services/shared.service';
 
 
 @Component({
@@ -12,12 +13,13 @@ export class VendorProductItemComponent implements OnInit {
   @Input() product: Product;
   @Output() delete = new EventEmitter();
   @Output() update = new EventEmitter();
+  categories: string[] = this.sharedService.categoryList;
 
   editProduct: Product;
 
   showMode = true;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private sharedService: SharedService) {
   }
 
   ngOnInit(): void {
@@ -36,7 +38,6 @@ export class VendorProductItemComponent implements OnInit {
   onDelete(product: Product): void {
     this.productService.deleteProduct(product.id)
       .subscribe((data) => {
-        console.log(product);
         this.delete.emit(product);
       }, error => {
         console.log(error.status);
@@ -51,6 +52,7 @@ export class VendorProductItemComponent implements OnInit {
       .subscribe((data) => {
         Object.assign(this.product, this.editProduct);
       }, error => {
+        Object.assign(this.editProduct, this.product);
         console.log(error.status);
       });
     this.showMode = !this.showMode;

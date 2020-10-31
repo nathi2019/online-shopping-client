@@ -3,6 +3,7 @@ import {Product, Cart} from '../models';
 
 @Injectable()
 export class SharedService {
+    vendorId = 4;
     productList: Product[];
     cartList: Cart[];
     selectedCategories: string[];
