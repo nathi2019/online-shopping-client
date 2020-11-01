@@ -39,7 +39,7 @@
 
     <div class="col-4">
       <input style="display: none" type="file" multiple (change)="onFileChanged($event)" #fileInput>
-      <button mat-button (click)="fileInput.click()">Add images</button>
+      <button mat-button type="button" (click)="fileInput.click()">Add images</button>
     </div>
   </div>
   <hr>

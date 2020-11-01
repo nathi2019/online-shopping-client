@@ -1,27 +1,27 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
-import { SharedService } from 'src/app/services/shared.service';
-import { Cart } from 'src/app/models';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Router} from '@angular/router';
+import {SharedService} from 'src/app/services/shared.service';
+import {Cart} from 'src/app/models';
 
 @Component({
-    selector: 'app-page-header',
-    templateUrl: './page-header.component.html',
-    styleUrls: ['./page-header.component.css']
+  selector: 'app-page-header',
+  templateUrl: './page-header.component.html',
+  styleUrls: ['./page-header.component.css']
 })
 export class PageHeaderComponent implements OnInit {
-    @Input() isConnected: boolean;
-    @Input() cartList: Cart[] = this.sharedService.cartList;
-    @Output() search = new EventEmitter();
+  @Input() isConnected: boolean;
+  @Input() cartList: Cart[] = this.sharedService.cartList;
+  @Output() search = new EventEmitter();
+  categories = this.sharedService.categoryList;
 
 
+  constructor(private router: Router, private sharedService: SharedService) {
+  }
 
-    constructor(private router: Router, private sharedService: SharedService) {
-    }
+  ngOnInit(): void {
+  }
 
-    ngOnInit(): void {
-    }
-
-    calculateNumItems(): number {
+  calculateNumItems(): number {
 
         return (this.cartList.length === 0) ? 0 : this.cartList.map(cart => cart.quantity).reduce((a, b) => {
             return Number(a) + Number(b);
@@ -29,7 +29,7 @@ export class PageHeaderComponent implements OnInit {
     }
 
     onSearch(value: any): void {
-        this.search.emit(value.searchValue);
+        this.search.emit(value);
     }
 
     onOrderButtonClicked() {

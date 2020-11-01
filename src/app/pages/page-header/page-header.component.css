@@ -9,7 +9,7 @@
 }
 
 .mat-toolbar {
-  background-color: snow;
+  background-color: white;
 }
 
 .toolbar-icon {
@@ -27,7 +27,7 @@
   height: 50px;
 
   transition: top 0.5s;
-  box-shadow: 0 1px 18px 1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 8px 8px 0 rgba(0, 0, 0, .12) !important;
+  box-shadow: 0 1px 8px 1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 2px 0 rgba(0, 0, 0, .12) !important;
 
 }
 
@@ -46,74 +46,40 @@
 }
 
 
-.form-control:focus {
-
-  z-index: +1;
-  border-color: snow;
-  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 1px 0 rgba(0, 0, 0, .12) !important;
-
-}
-
-
-
-.search-button:hover {
-
-  box-shadow: 0 6px 6px 6px rgba(0, 0, 0, .2), 0 6px 6px 0 rgba(0, 0, 0, .14), 0 6px 6px 0 rgba(0, 0, 0, .12) !important;
-  transform: translate3d(0, -15, 0);
-  transition: background .10s cubic-bezier(.25, .8, .25, 1), box-shadow 500ms cubic-bezier(.4, 0, .2, 1);
-
-}
-
-
-
-.form-control:hover {
-
-  box-shadow: 0 6px 6px 6px rgba(0, 0, 0, .2), 0 6px 6px 0 rgba(0, 0, 0, .14), 0 6px 6px 0 rgba(0, 0, 0, .12) !important;
-  transform: translate3d(0, -15, 0);
-  transition: background .10s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
-
-}
-
-.form-control:focus + .search-button {
-
-  box-shadow: 0 6px 6px 6px rgba(0, 0, 0, .2), 0 6px 6px 0 rgba(0, 0, 0, .14), 0 6px 6px 0 rgba(0, 0, 0, .12) !important;
-  transform: translate3d(0, -15, 0);
-  transition: background .10s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
-
-}
-
-.form-control:hover + .search-button {
-
-  box-shadow: 0 6px 6px 6px rgba(0, 0, 0, .2), 0 6px 6px 0 rgba(0, 0, 0, .14), 0 6px 6px 0 rgba(0, 0, 0, .12) !important;
-  transform: translate3d(0, -15, 0);
-  transition: background .10s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
-
-}
-
-.form-control:focus {
-
-  box-shadow: 0 6px 6px 6px rgba(0, 0, 0, .2), 0 6px 6px 0 rgba(0, 0, 0, .14), 0 6px 6px 0 rgba(0, 0, 0, .12) !important;
-  transform: translate3d(0, -15, 0);
-  transition: background .10s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
-
-}
 .form-control {
   transition: background .5s cubic-bezier(.25, .8, .25, 1), box-shadow 500ms cubic-bezier(.4, 0, .2, 1);
 
-  width: 80%;
-  height: 36px;
-  float: left;
 }
-.search-button {
-  transition: background .10s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
 
-  float: right;
-
-}
 
 form {
-  width: 30%;
-  height: 100%;
-  padding: 5px;
 
+  height: 100%;
+width: 45%;
+
+}
+
+.input-group {
+
+
+  margin-left: 50px;
+  width: 100%;
+  margin-top: 5px;
+
+}
+input:focus{
+  box-shadow: 0 0 0;
+  border-color: gray;
+}
+.custom-select {
+  color: white;
+  background-color:#545b62;
+}
+.custom-select:focus{
+
+}
+.search-button {
+
+  background-color: #545b62 ;
+  color: white;
 }

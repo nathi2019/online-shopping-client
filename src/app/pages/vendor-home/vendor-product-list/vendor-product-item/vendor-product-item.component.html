@@ -65,6 +65,19 @@
     </div>
 
   </div>
+  <hr>
+  <div class="row">
+    <div class="col-4" [hidden]="showMode">
+      <input style="display: none" type="file" multiple (change)="onFileChanged($event)" #fileInput>
+      <button mat-button type="button" (click)="fileInput.click()">Add images</button>
+    </div>
+  </div>
+  <div class="row">
 
+
+    <div class="col-3 img-hover" *ngFor="let url of urls">
+      <img class="img-responsive " [src]="url">
+    </div>
+  </div>
 
 </div>

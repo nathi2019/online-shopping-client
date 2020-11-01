@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit,} from '@angular/core';
 import {Product} from 'src/app/models';
-import {SharedService} from 'src/app/services/shared.service';
 import {ProductService} from '../../../services';
 
 @Component({
@@ -8,17 +7,29 @@ import {ProductService} from '../../../services';
   templateUrl: './shop-cockpit.component.html',
   styleUrls: ['./shop-cockpit.component.css']
 })
-export class ShopCockpitComponent implements OnInit {
 
+export class ShopCockpitComponent implements OnInit {
   products: Product[];
 
-  constructor( private productService: ProductService) {
+  constructor(private productService: ProductService) {
     this.productService.getAllProducts()
-      .subscribe(products => this.products = products , error => console.log(error.status));
+      .subscribe(products => this.products = products, error => console.log(error.status));
 
   }
 
   ngOnInit(): void {
+
+  }
+
+  onSearchHeaderClicked(searchForm: any): void {
+    if (searchForm.category === '' && searchForm.keyword === '') {
+      this.productService.getAllProducts()
+        .subscribe(products => this.products = products, error => console.log(error.status));
+
+    } else {
+      this.productService.searchProduct(searchForm.keyword, searchForm.category)
+        .subscribe((products) => this.products = products, error => console.log(error.status));
+    }
 
   }
 

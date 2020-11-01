@@ -5,14 +5,29 @@
 
     <span class="toolbar-spacer"></span>
 
-    <form #searchForm="ngForm" (ngSubmit)="onSearch(searchForm.value)">
-        <input name="searchValue" class="form-control search-input" type="text" placeholder="Search in products"
-            ngModel>
+  <form #searchForm="ngForm" (ngSubmit)="onSearch(searchForm.value)">
+    <div class="input-group mb-3  ">
+
+      <div class="input-group-prepend">
+        <select name="category" class="form-control custom-select "  ngModel>
+          <option value="" selected  >All Categories</option>
+          <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+
+        </select>
+      </div>
+
+      <input name="keyword" placeholder="Search Products" type="text" class="form-control"  ngModel>
+
+      <div class="input-group-append">
         <button type="submit" class="search-button" mat-stroked-button mat-button>
-            <mat-icon>search</mat-icon>
+          <mat-icon>search</mat-icon>
 
         </button>
-    </form>
+      </div>
+    </div>
+  </form>
+
+
 
     <span class="toolbar-spacer"></span>
 

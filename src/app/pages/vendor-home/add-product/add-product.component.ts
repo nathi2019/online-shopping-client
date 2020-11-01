@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SharedService} from '../../../services/shared.service';
-import {Product, ProductRequest} from '../../../models';
+import {ProductRequest} from '../../../models';
 import {ProductService} from '../../../services';
 
 @Component({
@@ -9,7 +9,7 @@ import {ProductService} from '../../../services';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-  selectedFiles: File [];
+  selectedFiles: File [] ;
   urls: any[];
   categories: string[] = this.sharedService.categoryList;
 
@@ -23,6 +23,7 @@ export class AddProductComponent implements OnInit {
     this.selectedFiles = event.target.files;
     this.urls = new Array(this.selectedFiles.length);
     let i = 0;
+    console.log(this.selectedFiles);
     for (; i < this.selectedFiles.length; i++) {
       this.readImageUrl(i);
     }
@@ -43,9 +44,15 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(product: ProductRequest): void {
-    product.files = this.selectedFiles;
     this.productService.createProduct(product)
-      .subscribe((data) => console.log(data), error => console.log(error.status));
+      .subscribe(
+        (id) => {
+          console.log(id);
+          Array.from(this.selectedFiles)
+            .forEach(file => this.productService
+              .uploadProductFile(file, id)
+              .subscribe(data => console.log(data), error => console.log(error.status)));
+        }, error => console.log(error.status));
 
   }
   onReset(): void{
