@@ -19,12 +19,13 @@ export class AuthenticationService {
     return this.currentUser;
   }
   isAuthenticated() {
-    return this.currentUser != null;
+    return (this.currentUser != null);
   }
 
 
   login(username: string, password: string) {
-    return this.http.post<ApiResponse>(environment.API_URL + "api/auth/login", { username, password })
+    console.log(username)
+    return this.http.post<ApiResponse>(environment.API_URL + "/login", { username, password })
       .pipe(map(response => {
         //login is succesfull if there is a jwt token 
         if (response && response.result.access_token) {
@@ -37,6 +38,10 @@ export class AuthenticationService {
   logout() {
     localStorage.removeItem('currentUser');
     this.currentUser = null;
+  }
+
+  signUp(user) {
+    return this.http.post<ApiResponse>(environment.API_URL + "/signup", user);
   }
 
 

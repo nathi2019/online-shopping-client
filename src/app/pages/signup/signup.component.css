@@ -13,10 +13,26 @@
     min-width: 300px;
   }
 
-  mat-card-title,
+  mat-card-title,mat-card-subtitle,
   mat-card-content {
     display: flex;
     justify-content: center;
+  }
+  mat-card {
+    box-shadow: 0 8px 8px 8px rgba(0, 0, 0, .2), 0 8px 8px 0 rgba(0, 0, 0, .14), 0 8px 8px 0 rgba(0, 0, 0, .12) !important;
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+  
+  
+  
+  }
+  mat-card-content {
+    position: center;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+  
   }
 
   .error {
@@ -34,4 +50,8 @@
     padding : 2px;
    margin-bottom: 2%;
 
+  }
+  .mat-form-field{
+    display: bock;
+    width: 100;
   }

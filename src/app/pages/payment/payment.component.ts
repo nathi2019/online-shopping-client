@@ -1,9 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, ChangeDetectorRef } from '@angular/core';
-import { StripeService, StripeCardComponent, StripeElementsService } from 'ngx-stripe';
-import {
-  StripeCardElementOptions,
-  StripeElementsOptions
-} from '@stripe/stripe-js';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CreditCardValidatorService } from '../../services/credit-card-validator.service';
+import { PaymentService } from '../../services/payment.service';
+import { PaymentDetail } from '../../models/payment.model';
+import { first } from 'rxjs/operators';
+import { EncryptionService } from '../../services/encryption.service'
+import { Card } from 'src/app/models/credit-card';
+
+
 
 
 @Component({
@@ -12,61 +16,77 @@ import {
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  @Input() amount: number;
-  @Input() description: string;
+  /**
+   * accepts the amount to be paid and the description of the payment 
+   */
+  @Input() amount = 0;
+  @Input() description = '';
+  /**
+   * emits payment status. the calling component can harness this and decide next logic 
+   */
+  @Output() paymentStatus = new EventEmitter<boolean>();
   cardErrors: any;
   loading: boolean = false;
   confirmation: any;
+  isSubmitted: boolean = false;
+  paymentOk: boolean = false;
+  cardForm: FormGroup;
 
-  @ViewChild(StripeCardComponent) card: StripeCardComponent;
-
-  cardOptions: StripeCardElementOptions = {
-    style: {
-      base: {
-      
-        iconColor: '#666EE8',
-        color: '#31325F',
-        fontWeight: '300',
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSize: '18px',
-        '::placeholder': {
-          color: '#CFD7E0'
-        }
-      }
-    }
-  };
-
-  elementsOptions: StripeElementsOptions = {
-    locale: 'en'
-  };
- 
-
-  constructor(private stripeServices: StripeService) { }
+  constructor(
+    private cardValidator: CreditCardValidatorService,
+    private formBuidler: FormBuilder,
+    private paymentService: PaymentService,
+    private encryption: EncryptionService
+  ) { }
 
 
-  ngOnInit(): void {
-    
-
+  ngOnInit() {
+    this.cardForm = this.formBuidler.group({
+      cardHolderName: ['', Validators.required],
+      cardNumber: ['', [Validators.required, Validators.minLength(12), this.cardValidator.luhnValidator()]],
+      cvc: ['', Validators.required],
+      expirationDate: ['', Validators.required]
+    });
+  }
+  get getCardForm() {
+    return this.cardForm.controls;
+  }
+  /**
+   * form controls for validation of a credit card number 
+   */
+  getCardNumberControl(): AbstractControl | null {
+    return this.cardForm && this.cardForm.get('cardNumber');
   }
 
-  async handleForm(e) {
-    e.preventDefault();
-    console.log(this.card)
+  onPayButton() {
+    this.isSubmitted = true;
+    if (this.cardForm.invalid) return
+    this.loading = true;
+    this.paymentService.placePayments(this.prepareOrder()).pipe(first())
+      .subscribe(response => {
+        console.log(response)
+        this.paymentOk = response.status === "SUCCESS";
+        this.paymentStatus.emit(this.paymentOk);
 
-    // const { source, error } = await this.stripe.createSource(this.card);
+      })
 
-    // if (error) {
-    //   // Inform the customer that there was an error.
-    //   this.cardErrors = error.message;
-    // } else {
-    //   // Send the token to your server.
-    //   this.loading = true;
-    //   // const user = await this.auth.getUser();
-    //   // const fun = this.functions.httpsCallable('stripeCreateCharge');
-    //   // this.confirmation = await fun({ source: source.id, uid: user.uid, amount: this.amount }).toPromise();
-    //   this.loading = false;
 
-    // }
+
   }
+  prepareOrder(): PaymentDetail {
+    let payment = new PaymentDetail();
+    let card = new Card();
+
+    payment.amount = this.amount;
+    payment.orderDescription = this.description;
+    card.cardNumber = this.getCardForm.cardNumber.value;
+    card.holderName = this.getCardForm.cardHolderName.value;
+    card.ccv = this.getCardForm.cvc.value;
+    card.expirationDate = this.getCardForm.expirationDate.value;
+    payment.payerCard = card;
+    return payment;
+  }
+
+
 
 }

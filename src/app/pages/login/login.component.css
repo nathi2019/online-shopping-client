@@ -1,32 +1,77 @@
-:host {
-    display: flex;
-    justify-content: center;
-    margin: 100px 0px;
-  }
-  .form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  .mat-form-field {
-    width: 100%;
-    min-width: 300px;
-  }
+.container-fluid{
 
-  mat-card-title,
-  mat-card-content {
-    display: flex;
-    justify-content: center;
-  }
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+}
 
-  .error {
-    padding: 16px;
-    width: 300px;
-    color: white;
-    background-color: red;
-  }
+mat-card {
+  box-shadow: 0 8px 8px 8px rgba(0, 0, 0, .2), 0 8px 8px 0 rgba(0, 0, 0, .14), 0 8px 8px 0 rgba(0, 0, 0, .12) !important;
+  width: 30%;
+  margin-right: auto;
+  margin-left: auto;
 
-  .button {
-    display: flex;
-    justify-content: center;
-  }
+
+
+}
+
+mat-icon {
+  color: #ff4081;
+}
+
+.brand-Label {
+  margin: 40px;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+}
+
+.forgot-password {
+  float: right;
+  font-size: 0.7rem;
+  cursor: pointer;
+  color: #ff4081;
+}
+
+.username {
+  width: 100%;
+  display: block;
+}
+
+.password {
+  display: block;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.login-button {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+mat-card-content {
+  position: center;
+  margin-top: 20%;
+  margin-left: 20%;
+  margin-right: 20%;
+
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.sign-up a{
+  cursor: pointer;
+  color: #ff4081;
+}
+.sign-up{
+  text-align: center;
+}

@@ -1,8 +1,30 @@
-<form (submit)="handleForm($event)">
+<div class='container'>
+  <h2>Provide your payment option</h2>
+  <h4>${{amount}}</h4>
+  <!-- <h6>{{description}}</h6> -->
+  <form [formGroup]="cardForm" (ngSubmit)="onPayButton()">
 
-  <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+    <div class="input-group1">
 
-  <button mat-raised-button style="margin-top: 4%;">Buy for ${{ amount / 100 }}.00</button>
+      <input formControlName="cardNumber" [formControl]="getCardNumberControl()" placeholder="card number">
+      <div *ngIf="getCardNumberControl().dirty">
+        <p [class.invalid]="getCardNumberControl().invalid"></p>
+        <p [class.valid]="getCardNumberControl().valid"></p>
+      </div>
+      <input formControlName="cardHolderName" placeholder="card holder name">
 
-</form>
+    </div>
 
+    <!-- <input name="cardHolderName" placeholder="card holder name"> -->
+
+    <div class="input-group2">
+      <input formControlName="cvc" placeholder="CVC" style="max-width: 50px;">
+      <input formControlName="expirationDate" placeholder="mm/yy" style="max-width: 70px; align-self:flex-end;">
+      <button type="submit" mat-raised-button>Pay</button>
+    </div>
+
+    <div class="button">
+
+    </div>
+  </form>
+</div>

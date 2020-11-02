@@ -15,7 +15,7 @@ height: 100%;
 .right-label{
     margin-top: 4px;
     float: right;
-    color: crimson;
+    color: #ff4081;
 
 }
 .filter-label{
@@ -36,7 +36,7 @@ height: 100%;
 
 }
 .add-category:hover{
-    color: crimson;
+    color: #ff4081;
 }
 
 

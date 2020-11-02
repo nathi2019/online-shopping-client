@@ -1,0 +1,74 @@
+*{
+  color: #525761;
+}
+
+div.container {
+  background-color: #f6f6f6;
+  height: auto;
+  width: auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 8px auto 15px auto;
+}
+
+
+  h2,h4 {
+    text-align: center;
+  }
+
+  form {
+    width:300px;
+    height:auto; 
+    margin: 20px auto auto;
+  }
+  .input-group1{
+    display: flex;
+    flex-direction: column;
+  }
+  .input-group2{
+    display:flex;
+    flex-direction: row;
+    width: 30px;
+
+  }
+
+  input, input:focus {
+    border: 1px #525761 solid ;
+    border-radius: 4px;
+    padding: 5px;
+    outline:invert;
+    font-size: 12px;
+    margin: 8px;
+  }
+
+    .invalid, .ng-dirty {
+      border-color:  red;
+    }
+    .ng-valid{
+      border-color: green;
+    }
+
+  
+
+  p {
+    text-align: center;
+    font-size: 12px;
+  }
+
+    .valid:after {
+      color: green;
+      content: 'Card Number is Valid!';
+    }
+
+    .invalid:after {
+      color: red;
+      content: 'Invalid Card Number!';
+    }
+  
+    .button {
+      display: flex;
+      justify-content: center;
+    }
