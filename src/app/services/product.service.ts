@@ -33,7 +33,7 @@ export class ProductService {
   }
 
   getProduct(id: string): Observable<any> {
-    return this.http.get<ApiResponse>(this.productUrl + id);
+    return this.http.get<ApiResponse>(this.productUrl + '/' + id);
   }
 
   deleteProduct(id: number): Observable<any> {
@@ -43,41 +43,56 @@ export class ProductService {
   }
 
   updateProduct(product: Product): Observable<Product> {
-    const params = new HttpParams().append('vendorId', this.sharedService.vendorId.toString())
-      .append('productId', product.id.toString());
-    return this.http.put<Product>(this.productUrl, product, {params});
+    return this.http.put<Product>(this.productUrl, product);
   }
 
   createProduct(product: ProductRequest): Observable<number> {
+
+
     product.vendorId = this.sharedService.vendorId;
-    console.log(product);
     return this.http.post<Product>(this.productUrl, product)
       .pipe(map(response => {
         return response.id;
       }));
   }
 
+
+  getProductImages(id: number): Observable<string[]> {
+    return this.http.get<ProductImageResponseModel>(this.productUrl + '/res/' + id)
+      .pipe(map(
+        (response) => {
+          return response.imageUrl;
+        }
+      ));
+  }
+
   uploadProductFile(file: File, id: number): Observable<string> {
-    const params = new HttpParams().append('productId', id.toString())
-      .append('vendorId', this.sharedService.vendorId.toString());
-    return this.http.post<ProductImageResponseModel>(this.productFileUploadUrl, file, {})
-      .pipe(
-        map(response => {
-          return response.url;
-        }));
+    const uploadData = new FormData();
+    uploadData.append('file', file);
+    uploadData.append('productId', id.toString());
+    uploadData.append('vendorId', this.sharedService.vendorId.toString());
+    return this.http.post<string>(this.productUrl + '/res', uploadData);
   }
 
   getPendingProducts(): Observable<Product[]> {
     const params = new HttpParams().append('vendorId', this.sharedService.vendorId.toString());
-    return this.http.get<ProductResponse>(this.pendingProductUrl, {params})
+    return this.http.get<ProductResponse>(this.productUrl + '/pending', {params})
       .pipe(map(response => {
         return response.products;
       }));
   }
 
-  getActiveProducts(): Observable<Product[]> {
+  getApprovedProducts(): Observable<Product[]> {
     const params = new HttpParams().append('vendorId', this.sharedService.vendorId.toString());
-    return this.http.get<ProductResponse>(this.activeProductUrl, {params})
+    return this.http.get<ProductResponse>(this.productUrl + '/approved', {params})
+      .pipe(map(response => {
+        return response.products;
+      }));
+  }
+
+  getRejectedProducts(): Observable<Product[]> {
+    const params = new HttpParams().append('vendorId', this.sharedService.vendorId.toString());
+    return this.http.get<ProductResponse>(this.productUrl + '/' + 'rejected', {params})
       .pipe(map(response => {
         return response.products;
       }));

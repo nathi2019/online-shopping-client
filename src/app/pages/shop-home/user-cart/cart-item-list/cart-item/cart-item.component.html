@@ -2,7 +2,7 @@
     <div class="left-side">
 
 
-        <img src="{{cartItem.product.imageUrl[0]}}">
+        <img src="{{convertUrl(cartItem.product.imageUrl[0])}}">
 
 
     </div>
@@ -15,7 +15,7 @@
         <br>
         <hr>
         <select [(ngModel)]="cartItem.quantity">
-            <option *ngFor="let item of range(1,cartItem.product.inStockQuantity)" value="{{item}}">{{item}}</option>
+            <option *ngFor="let item of range(1,cartItem.product.quantity)" value="{{item}}">{{item}}</option>
         </select>
 
         <button mat-icon-button class="remove-button" (click)="onRemove()">

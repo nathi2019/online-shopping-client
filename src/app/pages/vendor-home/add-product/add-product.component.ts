@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SharedService} from '../../../services/shared.service';
-import {ProductRequest} from '../../../models';
+import {Product, ProductRequest} from '../../../models';
 import {ProductService} from '../../../services';
 
 @Component({
@@ -43,7 +43,7 @@ export class AddProductComponent implements OnInit {
     reader.readAsDataURL(this.selectedFiles[index]);
   }
 
-  onSubmit(product: ProductRequest): void {
+  onSubmit(product: Product): void {
     this.productService.createProduct(product)
       .subscribe(
         (id) => {

@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Cart} from 'src/app/models';
 
 @Component({
@@ -11,14 +11,17 @@ export class CartItemComponent implements OnInit {
     @Output() remove = new EventEmitter();
     range = (start, end) => Array.from({length: (end - start + 1)}, (v, k) => k + start);
 
-    constructor() {
-    }
+  constructor() {
+  }
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+  }
 
-    onRemove(): void {
-        this.remove.emit(this.cartItem);
-    }
+  onRemove(): void {
+    this.remove.emit(this.cartItem);
+  }
 
+  convertUrl(value: any): string {
+    return 'http://' + value;
+  }
 }

@@ -10,10 +10,11 @@ import {ProductService} from '../../services';
 })
 export class VendorHomeComponent implements OnInit {
 
-  pendingProducts: Product[] = new Array();
-  activeProducts: Product[];
+  pendingProducts: Product[];
+  approvedProducts: Product[];
+  rejectedProducts: Product[];
 
-  // TODO get Vendor data from backend
+
   vendor: Vendor = {
     products: this.sharedService.productList,
     company: {name: 'M&H'}
@@ -25,8 +26,8 @@ export class VendorHomeComponent implements OnInit {
     this.productService.getPendingProducts()
       .subscribe(products => { this.pendingProducts = products; console.log(this.pendingProducts);
       } , error => console.log(error));
-    this.productService.getActiveProducts()
-      .subscribe(products => { this.activeProducts = products; console.log(this.activeProducts);
+    this.productService.getApprovedProducts()
+      .subscribe(products => { this.approvedProducts = products; console.log(this.approvedProducts);
       } , error => console.log(error));
   }
 
