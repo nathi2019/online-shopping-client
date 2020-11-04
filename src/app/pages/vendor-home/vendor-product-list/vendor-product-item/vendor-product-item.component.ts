@@ -13,7 +13,7 @@ export class VendorProductItemComponent implements OnInit {
   @Input() product: Product;
   @Output() delete = new EventEmitter();
   @Output() update = new EventEmitter();
-  categories: string[] = this.sharedService.categoryList;
+  @Input() categories: string[] ;
   selectedFiles: File [];
   urls: any[];
   fileUpload = new Subject<File>();

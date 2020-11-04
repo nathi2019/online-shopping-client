@@ -9,13 +9,15 @@ import {Cart} from 'src/app/models';
   styleUrls: ['./page-header.component.css']
 })
 export class PageHeaderComponent implements OnInit {
-  @Input() isConnected: boolean;
+  isConnected: boolean;
   @Input() cartList: Cart[] = this.sharedService.cartList;
   @Output() search = new EventEmitter();
-  categories = this.sharedService.categoryList;
+  @Input() categories: string[];
 
 
   constructor(private router: Router, private sharedService: SharedService) {
+    this.isConnected = this.sharedService.currentUser == null ? false : true;
+
   }
 
   ngOnInit(): void {
@@ -26,26 +28,31 @@ export class PageHeaderComponent implements OnInit {
         return (this.cartList.length === 0) ? 0 : this.cartList.map(cart => cart.quantity).reduce((a, b) => {
             return Number(a) + Number(b);
         });
+  }
+
+  onSearch(value: any): void {
+    this.search.emit(value);
+  }
+
+  onOrderButtonClicked(): void {
+    this.router.navigate(['home/orders']);
+  }
+
+  onHomeButtonClicked(): void {
+    this.router.navigate(['home/']);
+  }
+
+  onCartButtonClicked(): void{
+    this.router.navigate(['home/cart']);
+  }
+
+  onEditProfileButtonClicked(): void {
+    if (this.isConnected) {
+      this.router.navigate(['home/edit-profile']);
+    } else {
+      this.router.navigate(['login']);
     }
 
-    onSearch(value: any): void {
-        this.search.emit(value);
-    }
-
-    onOrderButtonClicked() {
-        this.router.navigate(['shop-home/orders']);
-    }
-
-    onHomeButtonClicked() {
-        this.router.navigate(['shop-home']);
-    }
-
-    onCartButtonClicked() {
-        this.router.navigate(['home/cart']);
-    }
-
-    onEditProfileButtonClicked() {
-        this.router.navigate(['shop-home/edit-profile']);
-    }
+  }
 
 }

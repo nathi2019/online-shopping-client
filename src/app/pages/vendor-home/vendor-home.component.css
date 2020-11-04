@@ -1,10 +1,15 @@
-.active-products {
+.pending-products {
   float: left;
   width: 48.5%;
   margin-left: 1%;
 }
+.active-products{
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 1%;
 
-.pending-products {
+}
+.rejected-products {
   float: right;
   width: 48.5%;
   margin-right: 1%;

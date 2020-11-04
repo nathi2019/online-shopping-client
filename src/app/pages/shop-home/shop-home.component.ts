@@ -12,7 +12,7 @@ export class ShopHomeComponent implements OnInit {
   constructor(private sharedService: SharedService, public router: Router) {
 
     this.initCart();
-    this.sharedService.initFilters();
+
   }
 
   ngOnInit(): void {

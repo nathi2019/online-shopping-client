@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Cart, Product} from '../models';
-import {ProductService} from './product.service';
+import {Cart, CartVendorSale, Product, User} from '../models';
 
 @Injectable()
 export class SharedService {
@@ -8,29 +7,14 @@ export class SharedService {
   constructor() {
   }
 
-    vendorId = 5;
-    productList: Product[];
-    cartList: Cart[];
-    selectedCategories: string[];
-    selectedCategoryList: { category: string, checked: boolean }[];
-    categoryList: string[] = ['Camis' , 'Dress', 'Formal Dress', 'Pant Suit', 'Coat', 'Skirt', 'T-shirt', 'Polo', 'Shirt', 'Vest', 'Jacket', 'Trendy Man', 'Suit', 'Sweater'];
+  currentUser: User;
+  vendorId = 4;
+  productList: Product[];
+  cartList: Cart[];
+  vendorInfo: CartVendorSale[] = new Array();
+  categoryList: string[];
 
-    price: {minPrice: number, maxPrice: number} =  {minPrice: 0, maxPrice: 2000};
-    initFilters(): void {
-        this.selectedCategoryList = this.categoryList.map((categ) => {
-            return { category : categ, checked: false};
-        });
-        this.selectedCategories = new Array();
-        this.price.minPrice = 0;
-        this.price.maxPrice = 2000;
-    }
-
-    resetFilters(): void {
-        this.selectedCategoryList.forEach((categoryItem) => categoryItem.checked = false);
-        this.selectedCategories.splice(0, this.selectedCategories.length);
-        this.price.minPrice = 0;
-        this.price.maxPrice = 2000;
-
-
-    }
+  selectedCategories: string[];
+  selectedCategoryList: { category: string, checked: boolean }[];
+  price: { minPrice: number, maxPrice: number } = {minPrice: 0, maxPrice: 2000};
 }

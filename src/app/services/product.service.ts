@@ -3,7 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {ApiResponse} from '../util/response';
 import {Observable} from 'rxjs';
-import {Product, ProductImageResponseModel, ProductRequest, ProductResponse} from '../models';
+import {CategoryResponse, Product, ProductImageResponseModel, ProductRequest, ProductResponse} from '../models';
 import {SharedService} from './shared.service';
 import {map} from 'rxjs/operators';
 
@@ -15,14 +15,11 @@ class Files {
 })
 export class ProductService {
   productUrl = environment.API_URL + '/products';
-  productFileUploadUrl = environment.API_URL + '/products/upload';
-  pendingProductUrl = environment.API_URL + '/products/pending';
-  activeProductUrl = environment.API_URL + '/products/active';
-  productsUrl = environment.API_URL + 'products';
-  searchProductUrl = environment.API_URL + '/products/search';
+  categoryUrl = environment.API_URL + '/categories';
   productList: Product[];
 
   constructor(private http: HttpClient, private sharedService: SharedService) {
+
   }
 
   getAllProducts(): Observable<Product[]> {
@@ -102,10 +99,16 @@ export class ProductService {
     const params = new HttpParams().append('keyword', keyword)
       .append('category', category);
 
-    return this.http.get<ProductResponse>(this.searchProductUrl, {params})
+    return this.http.get<ProductResponse>(this.productUrl + '/' + 'search', {params})
       .pipe(map(response => {
         return response.products;
       }));
   }
 
+  getCategories(): Observable<string[]> {
+    return this.http.get<CategoryResponse>(this.categoryUrl)
+      .pipe(map(response => {
+        return response.categories;
+      }));
+  }
 }
