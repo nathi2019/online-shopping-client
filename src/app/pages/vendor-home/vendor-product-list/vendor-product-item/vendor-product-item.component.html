@@ -38,7 +38,7 @@
     <div class="col-3">
       <mat-form-field>
         <mat-label>Quantity</mat-label>
-        <input [(ngModel)]="editProduct.inStockQuantity" [disabled]="showMode" value="{{product.inStockQuantity}}"
+        <input [(ngModel)]="editProduct.quantity" [disabled]="showMode" value="{{product.quantity}}"
                matInput type="number">
       </mat-form-field>
     </div>
@@ -61,7 +61,7 @@
   </div>
   <div class="row">
     <div class="col-3 img-hover" *ngFor="let image of product.imageUrl">
-      <img class="img-responsive" src="{{image}}">
+      <img class="img-responsive" src="{{convertUrl(image)}}">
     </div>
 
   </div>

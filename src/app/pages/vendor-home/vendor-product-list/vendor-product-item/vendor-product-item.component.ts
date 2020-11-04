@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../../../../models';
 import {ProductService} from '../../../../services';
 import {SharedService} from '../../../../services/shared.service';
-
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-vendor-product-item',
@@ -13,10 +13,13 @@ export class VendorProductItemComponent implements OnInit {
   @Input() product: Product;
   @Output() delete = new EventEmitter();
   @Output() update = new EventEmitter();
-  categories: string[] = this.sharedService.categoryList;
+  @Input() categories: string[] ;
   selectedFiles: File [];
   urls: any[];
-
+  fileUpload = new Subject<File>();
+  fileSubscriber = this.fileUpload.asObservable().subscribe((file) => this.productService
+    .uploadProductFile(file, this.product.id)
+    .subscribe(data => console.log(data), error => console.log(error.status)));
 
   editProduct: Product;
 
@@ -32,9 +35,14 @@ export class VendorProductItemComponent implements OnInit {
       price: this.product.price,
       description: this.product.description,
       imageUrl: this.product.imageUrl,
-      inStockQuantity: this.product.inStockQuantity,
+      quantity: this.product.quantity,
       category: this.product.category,
+      vendorId: this.sharedService.vendorId
     };
+  }
+
+  convertUrl(value: any): string {
+    return 'http://' + value;
   }
 
   onFileChanged(event): void {
@@ -69,26 +77,21 @@ export class VendorProductItemComponent implements OnInit {
       });
   }
 
-  onSubmit(): void {
-    this.showMode = !this.showMode;
-    this.productService.updateProduct(this.editProduct)
-      .subscribe((data) => {
-        Object.assign(this.product, this.editProduct);
-      }, error => {
-        Object.assign(this.editProduct, this.product);
-        console.log(error.status);
-      });
-    Array.from(this.selectedFiles)
-      .forEach(file => this.productService
-        .uploadProductFile(file, this.product.id)
-        .subscribe(url => {
-          console.log(file);
-          this.product.imageUrl.push(url);
-        }, error => console.log(error.status)));
-    this.selectedFiles = null;
-    this.urls = null;
-
+  uploadFile(file: File): void {
   }
+
+  onSubmit(): void {
+
+    this.productService.updateProduct(this.product)
+      .subscribe(
+        (res) => {
+        }, error => console.log(error.status));
+    Array.from(this.selectedFiles)
+      .forEach((file) => this.fileUpload.next(file));
+
+    this.urls = null;
+  }
+
 
   onCancel(): void {
     this.showMode = !this.showMode;

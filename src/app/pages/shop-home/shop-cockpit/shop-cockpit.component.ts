@@ -10,11 +10,13 @@ import {ProductService} from '../../../services';
 
 export class ShopCockpitComponent implements OnInit {
   products: Product[];
-
+  categories: string[];
   constructor(private productService: ProductService) {
     this.productService.getAllProducts()
       .subscribe(products => this.products = products, error => console.log(error.status));
-
+    this.productService.getCategories()
+      .subscribe(categories => this.categories = categories,
+        error => console.log(error));
   }
 
   ngOnInit(): void {

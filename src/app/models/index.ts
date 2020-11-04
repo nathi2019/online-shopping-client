@@ -10,3 +10,5 @@ export * from './card.model';
 export * from './poductRequest.model';
 export * from './productResponse.model';
 export * from './productImageResponse.model';
+export * from './cartVendorSale.model';
+export * from './categoryResponse.model';

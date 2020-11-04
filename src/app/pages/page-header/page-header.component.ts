@@ -9,6 +9,7 @@ import { Cart } from 'src/app/models';
     styleUrls: ['./page-header.component.css']
 })
 export class PageHeaderComponent implements OnInit {
+<<<<<<< HEAD
     @Input() isConnected: boolean;
     @Input() cartList: Cart[] = this.sharedService.cartList;
     @Output() search = new EventEmitter();
@@ -17,6 +18,18 @@ export class PageHeaderComponent implements OnInit {
 
     constructor(private router: Router, private sharedService: SharedService) {
     }
+=======
+  isConnected: boolean;
+  @Input() cartList: Cart[] = this.sharedService.cartList;
+  @Output() search = new EventEmitter();
+  @Input() categories: string[];
+
+
+  constructor(private router: Router, private sharedService: SharedService) {
+    this.isConnected = this.sharedService.currentUser == null ? false : true;
+
+  }
+>>>>>>> 746e302caa1b0566e33a547e58614ae9b28b15ee
 
     ngOnInit(): void {
     }
@@ -26,29 +39,34 @@ export class PageHeaderComponent implements OnInit {
         return (this.cartList.length === 0) ? 0 : this.cartList.map(cart => cart.quantity).reduce((a, b) => {
             return Number(a) + Number(b);
         });
-    }
+  }
 
-    onSearch(value: any): void {
-        this.search.emit(value);
-    }
+  onSearch(value: any): void {
+    this.search.emit(value);
+  }
 
-    onOrderButtonClicked() {
-        this.router.navigate(['shop-home/orders']);
-    }
+  onOrderButtonClicked(): void {
+    this.router.navigate(['home/orders']);
+  }
 
-    onHomeButtonClicked() {
-        this.router.navigate(['shop-home']);
-    }
+  onHomeButtonClicked(): void {
+    this.router.navigate(['home/']);
+  }
 
-    onCartButtonClicked() {
-        this.router.navigate(['home/cart']);
-    }
+  onCartButtonClicked(): void{
+    this.router.navigate(['home/cart']);
+  }
 
-    onEditProfileButtonClicked() {
-        this.router.navigate(['shop-home/edit-profile']);
+  onEditProfileButtonClicked(): void {
+    if (this.isConnected) {
+      this.router.navigate(['home/edit-profile']);
+    } else {
+      this.router.navigate(['login']);
     }
     onLoginButtonClicked() {
         this.router.navigate(['/login']);
     }
+
+  }
 
 }

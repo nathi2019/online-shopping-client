@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from '../../../models';
+import {ProductService} from '../../../services';
 
 @Component({
   selector: 'app-vendor-product-list',
@@ -9,8 +10,11 @@ import {Product} from '../../../models';
 export class VendorProductListComponent implements OnInit {
   @Input() label: string;
   @Input() products: Product[];
-
-  constructor() {
+  categories: string[];
+  constructor(private productService: ProductService) {
+    this.productService.getCategories()
+      .subscribe(categories => this.categories = categories,
+        error => console.log(error));
   }
 
   ngOnInit(): void {
