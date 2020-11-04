@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
   paymentStatus: boolean = false;
   paymentNotComplete: boolean = false;
   @Output() amount: number;
-  @Output() description :string; 
+  @Output() description: string;
   error = "";
   signUpForm: FormGroup;
   signUpAsVendor: boolean = false;
@@ -39,13 +39,10 @@ export class SignupComponent implements OnInit {
     }
 
     this.signUpForm = this.formBuilder.group({
-      name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      passwordRepeat: ['', Validators.required]
-
-
-
+      passwordRepeat: ['', Validators.required],
+      bankAccountNumber: ['', Validators.required]
     });
   }
 
@@ -92,7 +89,7 @@ export class SignupComponent implements OnInit {
     if (event.checked) {
       this.signUpAsVendor = true;
       this.amount = this.registrationFee;
-      this.description = this.registrationDescription; 
+      this.description = this.registrationDescription;
     }
     else {
       this.signUpAsVendor = false;

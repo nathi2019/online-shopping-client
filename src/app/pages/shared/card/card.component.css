@@ -1,0 +1,48 @@
+:host {
+  justify-content: center;
+}
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+.valid:after {
+  color: green;
+  content: 'Card Number is Valid!';
+}
+
+.invalid:after {
+  color: red;
+  content: 'Invalid Card Number!';
+}
+
+.invalid, .ng-dirty {
+  border-color:  red;
+}
+
+.ng-valid{
+  border-color: green;
+}

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -46,9 +46,19 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { CartItemListComponent } from './shop-home/user-cart/cart-item-list/cart-item-list.component';
 import { CartItemComponent } from './shop-home/user-cart/cart-item-list/cart-item/cart-item.component';
 import { CheckoutPaneComponent } from './shop-home/user-cart/checkout-pane/checkout-pane.component';
-import { NgPaymentCardModule } from 'ng-payment-card';
-import {CreditCardDirectivesModule} from 'angular-cc-library';
-import { PayComponent } from './pay/pay.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { CardComponent } from './shared/card/card.component';
+import { AddressComponent } from './shared/address/address.component';
+import { VendorHomeComponent } from './vendor-home/vendor-home.component';
+import { StatusPaneComponent } from './vendor-home/status-pane/status-pane.component';
+import { VendorProductListComponent } from './vendor-home/vendor-product-list/vendor-product-list.component';
+import { VendorProductItemComponent } from './vendor-home/vendor-product-list/vendor-product-item/vendor-product-item.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { AddProductComponent } from './vendor-home/add-product/add-product.component';
+import { BankComponent } from './bank/bank.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -73,45 +83,49 @@ import { PayComponent } from './pay/pay.component';
     CartItemListComponent,
     CartItemComponent,
     CheckoutPaneComponent,
-    PayComponent,
- 
-  ],
+    UserDetailsComponent,
+    CardComponent,
+    AddressComponent,
+    VendorHomeComponent,
+    StatusPaneComponent,
+    VendorProductListComponent,
+    VendorProductItemComponent,
+    AddProductComponent,
+    BankComponent],
 
 
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatInputModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatListModule,
-    MatButtonModule,
-    MatCardModule,
-    MatPaginatorModule,
-    MatTableModule,
-    MatSliderModule,
-    MatSelectModule,
-    MatChipsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatCheckboxModule,
-    MatBadgeModule,
-    FormsModule,
-    MatListModule,
-    NgPaymentCardModule,
-    CreditCardDirectivesModule, 
-
-
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatInputModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatListModule,
+        MatButtonModule,
+        MatCardModule,
+        MatPaginatorModule,
+        MatTableModule,
+        MatSliderModule,
+        MatSelectModule,
+        MatChipsModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatDialogModule,
+        MatCheckboxModule,
+        MatBadgeModule,
+        FormsModule,
+        MatListModule,
+        MatTabsModule,
+      MatExpansionModule
+    ],
   exports: [AdminHomeComponent,
     SalesViewComponent,
     CatagoryPaneComponent,

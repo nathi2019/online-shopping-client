@@ -2,13 +2,14 @@
     display: flex;
     justify-content: center;
     margin: 100px 0px;
+  
   }
   .form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
+    min-width: 15%;
+    max-width: 30%;
+   
   }
-  .mat-form-field {
+  mat-form-field {
     width: 100%;
     min-width: 300px;
   }
@@ -20,19 +21,21 @@
   }
   mat-card {
     box-shadow: 0 8px 8px 8px rgba(0, 0, 0, .2), 0 8px 8px 0 rgba(0, 0, 0, .14), 0 8px 8px 0 rgba(0, 0, 0, .12) !important;
-    width: 30%;
+    max-width: 30%;
     margin-right: auto;
     margin-left: auto;
-  
-  
-  
   }
+
   mat-card-content {
     position: center;
     margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
   
+  }
+  input{
+    width: auto;
+    display: block; 
   }
 
   .error {
@@ -53,5 +56,15 @@
   }
   .mat-form-field{
     display: bock;
-    width: 100;
+    min-width: 15%;
+  }
+  .brand-Label {
+    margin: 10px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+  }
+  a {
+    color:black;
+    text-decoration: none; /* no underline */
   }

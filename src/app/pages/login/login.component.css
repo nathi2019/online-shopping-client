@@ -75,3 +75,7 @@ mat-card-content {
 .sign-up{
   text-align: center;
 }
+a {
+  color:black;
+  text-decoration: none; /* no underline */
+}

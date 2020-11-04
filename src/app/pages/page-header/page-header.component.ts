@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 import { Cart } from 'src/app/models';
@@ -12,7 +12,7 @@ export class PageHeaderComponent implements OnInit {
     @Input() isConnected: boolean;
     @Input() cartList: Cart[] = this.sharedService.cartList;
     @Output() search = new EventEmitter();
-
+    categories = this.sharedService.categoryList;
 
 
     constructor(private router: Router, private sharedService: SharedService) {
@@ -24,12 +24,12 @@ export class PageHeaderComponent implements OnInit {
     calculateNumItems(): number {
 
         return (this.cartList.length === 0) ? 0 : this.cartList.map(cart => cart.quantity).reduce((a, b) => {
-            return a + b;
-        })
+            return Number(a) + Number(b);
+        });
     }
 
     onSearch(value: any): void {
-        this.search.emit(value.searchValue);
+        this.search.emit(value);
     }
 
     onOrderButtonClicked() {
@@ -41,11 +41,14 @@ export class PageHeaderComponent implements OnInit {
     }
 
     onCartButtonClicked() {
-        this.router.navigate(['shop-home/cart']);
+        this.router.navigate(['home/cart']);
     }
 
     onEditProfileButtonClicked() {
         this.router.navigate(['shop-home/edit-profile']);
+    }
+    onLoginButtonClicked() {
+        this.router.navigate(['/login']);
     }
 
 }

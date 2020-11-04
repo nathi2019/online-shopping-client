@@ -1,8 +1,14 @@
 import {Injectable} from '@angular/core';
-import {Product, Cart} from '../models';
+import {Cart, Product} from '../models';
+import {ProductService} from './product.service';
 
 @Injectable()
 export class SharedService {
+
+  constructor() {
+  }
+
+    vendorId = 4;
     productList: Product[];
     cartList: Cart[];
     selectedCategories: string[];

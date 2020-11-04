@@ -1,0 +1,72 @@
+
+.row {
+  margin-bottom: 40px;
+
+
+}
+input[disabled]{
+  color: black;
+}
+
+textarea[disabled]{
+  color: black;
+}
+.mat-form-field{
+  width: 100%;
+}
+.product-id {
+  position: absolute;
+
+
+  left: 0px;
+  top: 0px;
+  margin: 5px;
+}
+
+.actions {
+  margin: 5px;
+  position: absolute;
+  right: 0px;
+  top: -5px;
+  visibility: hidden;
+
+
+
+
+}
+
+button:hover {
+  color: red;
+}
+.container:hover .actions{
+  visibility: visible;
+}
+
+
+img {
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+
+  z-index: 1;
+  display: block;
+  transition: transform .4s;
+}
+
+
+
+.img-hover{
+  transition: transform .2s;
+}
+.img-hover:hover{
+  background-color: white;
+  transition: transform .2s;
+  transform: scale(2);
+  z-index: +5;
+
+  border-width: 1px;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px 8px rgba(0,0,0,.2), 0 8px 8px 0 rgba(0,0,0,.14), 0 8px 8px 0 rgba(0,0,0,.12) !important;
+
+
+}

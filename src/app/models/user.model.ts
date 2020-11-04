@@ -1,8 +1,10 @@
-import {ROLE} from '../models/enum.ROLE';
-export class User{
-    name : string;
-    email : string;
-    password : string;
-    role :ROLE; 
-    
+import { ROLE } from '../models/enum.ROLE';
+export class User {
+    name: string;
+    username: string;
+    email: string;
+    password: string;
+    imageUrl: string;
+    role: ROLE;
+
 }

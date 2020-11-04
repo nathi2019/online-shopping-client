@@ -1,4 +1,4 @@
-<app-page-header (search)="onSearchHeaderClicked($event)"></app-page-header>
+<app-page-header *ngIf="router.url !== '/home'" (search)="onSearchHeaderClicked($event)"></app-page-header>
 <div class="outlet">
     <router-outlet></router-outlet>
 </div>
@@ -15,7 +15,7 @@ Paginator
 
 <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="end">
 
-    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"> </mat-paginator>
+<!--    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"> </mat-paginator>-->
 
 </div>
 <app-page-footer></app-page-footer>

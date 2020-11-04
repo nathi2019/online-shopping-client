@@ -1,0 +1,41 @@
+.mat-form-field{
+  width: 100%;
+}
+
+img {
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+
+  z-index: 1;
+  display: block;
+  transition: transform .4s;
+}
+.col{
+}
+.actions{
+  margin-top: 30px;
+  width: 100%;
+}
+.row{
+  margin-bottom: 30px;
+}
+
+.add-button{
+  width: 100%;
+}
+.img-hover{
+  transition: transform .2s;
+}
+.img-hover:hover{
+  background-color: white;
+  transition: transform .2s;
+  transform: scale(2);
+  z-index: +5;
+
+  border-width: 1px;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px 8px rgba(0,0,0,.2), 0 8px 8px 0 rgba(0,0,0,.14), 0 8px 8px 0 rgba(0,0,0,.12) !important;
+
+
+}

@@ -31,6 +31,7 @@ export class PaymentComponent implements OnInit {
   isSubmitted: boolean = false;
   paymentOk: boolean = false;
   cardForm: FormGroup;
+  buttonName ='Pay';
 
   constructor(
     private cardValidator: CreditCardValidatorService,
