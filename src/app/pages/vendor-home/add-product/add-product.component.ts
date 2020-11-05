@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {SharedService} from '../../../services/shared.service';
 import {Product, ProductRequest} from '../../../models';
 import {ProductService} from '../../../services';
@@ -11,7 +11,7 @@ import {ProductService} from '../../../services';
 export class AddProductComponent implements OnInit {
   selectedFiles: File [] ;
   urls: any[];
-  categories: string[] = this.sharedService.categoryList;
+  @Input() categories: string[] ;
 
   constructor(private sharedService: SharedService, private productService: ProductService) {
   }

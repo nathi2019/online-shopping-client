@@ -10,11 +10,8 @@ import {ProductService} from '../../../services';
 export class VendorProductListComponent implements OnInit {
   @Input() label: string;
   @Input() products: Product[];
-  categories: string[];
+  @Input()categories: string[];
   constructor(private productService: ProductService) {
-    this.productService.getCategories()
-      .subscribe(categories => this.categories = categories,
-        error => console.log(error));
   }
 
   ngOnInit(): void {
