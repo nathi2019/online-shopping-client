@@ -28,3 +28,21 @@ mat-card-content {
   display: flex;
   justify-content: center;
 }
+
+.valid:after {
+  color: green;
+  content: 'Card Number is Valid!';
+}
+
+.invalid:after {
+  color: red;
+  content: 'Invalid Card Number!';
+}
+
+.invalid, .ng-dirty {
+  border-color:  red;
+}
+
+.ng-valid{
+  border-color: green;
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../services';
 import {User} from '../../models';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { ROLE } from 'src/app/models/enum.ROLE';
 
 @Component({
   selector: 'app-user-details',
@@ -22,7 +23,7 @@ export class UserDetailsComponent implements OnInit {
     this.success = '';
     this.user = this.authService.getCurrentUser();
     if (this.user == null) {
-      this.user = {name: 'Abu Hassan', username: 'AbuHassan', email: 'AbuHassan@gmail.com', password: 'AbuHassan01@', iamgeUrl: ''};
+      this.user = {name: 'Abu Hassan', username: 'AbuHassan', email: 'AbuHassan@gmail.com', password: 'AbuHassan01@', imageUrl: '', role :ROLE.ADMIN};
     }
     this.userDetailsForm = this.formBuilder.group({
       username: [{value: this.user.username, disabled: true}, Validators.required],

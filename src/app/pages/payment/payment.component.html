@@ -1,8 +1,20 @@
-<form (submit)="handleForm($event)">
+<mat-card style="margin-bottom: 2%;">
+  <mat-card-title>
+    <h1 class="brand-Label">
+      ${{amount}}
+    </h1>
+  </mat-card-title>
 
-  <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+  <mat-card-subtitle>
+    <p
+      style="text-align: center;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: large;">
+      Provide your payment details below
+    </p>
 
-  <button mat-raised-button style="margin-top: 4%;">Buy for ${{ amount / 100 }}.00</button>
-
-</form>
-
+  </mat-card-subtitle>
+  <mat-card-content>
+    <form [formGroup]="cardForm" (ngSubmit)="onPayButton()">
+      <app-card [buttonName]="buttonName"></app-card>
+    </form>
+  </mat-card-content>
+</mat-card>

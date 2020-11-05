@@ -1,45 +1,47 @@
-   <div class="container-fluid" >
-    <mat-card>
-      <mat-card-title><h1 class="brand-Label">Elegant Shop</h1></mat-card-title>
-      <mat-card-content>
+<div class="container-fluid">
+  <mat-card>
+    <mat-card-title>
+      <h1 class="brand-Label">
+        <a [routerLink]="['']">Elegant Shop</a>
+      </h1>
+    </mat-card-title>
+    <mat-card-content>
 
-        <form [formGroup]="loginForm" (ngSubmit)="onLoginButtonPressed()">
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginButtonPressed()">
 
-          <mat-form-field class="username">
-            <input type="text" matInput placeholder="Username" formControlName="username">
-            <mat-icon matSuffix>account_circle</mat-icon>
-          </mat-form-field>
-
-
-          <mat-form-field class="password">
-            <input matInput type="password" matInput placeholder="Password" formControlName="password">
-            <mat-icon matSuffix>lock</mat-icon>
-          </mat-form-field>
-
-          <a class="forgot-password"> Forgot password ?</a>
-
-          <div *ngIf="error">
-            <p *ngIf="error" class="error">
-              {{ error }}
-
-            </p>
-          </div>
+        <mat-form-field class="username">
+          <input type="text" matInput placeholder="Username" formControlName="username">
+          <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
 
 
-          <br>
+        <mat-form-field class="password">
+          <input matInput type="password" matInput placeholder="Password" formControlName="password">
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+
+        <a class="forgot-password"> Forgot password ?</a>
+
+        <div *ngIf="error">
+          <p *ngIf="error" class="error">
+            {{ error }}
+
+          </p>
+        </div>
 
 
-          <button mat-raised-button  class="login-button" type="submit" color="accent">Login</button>
+        <br>
 
 
-        </form>
-
-        <hr>
-        <p class="sign-up" >Don't have a login ? <a >sign up</a></p>
-      </mat-card-content>
+        <button mat-raised-button class="login-button" type="submit" color="accent">Login</button>
 
 
-    </mat-card>
-   </div>
+      </form>
+
+      <hr>
+      <p class="sign-up">Don't have a login ? <a href="/sign-up">sign up</a></p>
+    </mat-card-content>
 
 
+  </mat-card>
+</div>

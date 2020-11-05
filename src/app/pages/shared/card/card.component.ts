@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../../services';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {User} from '../../../models';
-import {Card} from '../../../models';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AuthenticationService } from '../../../services';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from '../../../models';
+import { Card } from '../../../models';
+import { CreditCardValidatorService } from 'src/app/services/credit-card-validator.service';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-card',
@@ -16,24 +18,42 @@ export class CardComponent implements OnInit {
   userDetailsForm: FormGroup;
   hide = true;
   success;
+  @Output() cardInfo = new EventEmitter<Card>();
+  @Input() buttonName ='Update';
 
-  constructor(private authService: AuthenticationService, private formBuilder: FormBuilder) { }
+  constructor(private authService: AuthenticationService,
+    private formBuilder: FormBuilder,
+    private cardValidator: CreditCardValidatorService,) { }
 
   ngOnInit(): void {
     this.user = this.authService.getCurrentUser();
     if (this.user == null) {
-      this.card = {cardNo: 'cardNo', expDate: 'expDate', name: 'name', cvv: 'cvv'}
+      this.card = { cardNumber: '', expirationDate: '', holderName: '', ccv: '' }
       // this.user = {card};
     }
     this.userDetailsForm = this.formBuilder.group({
-      cardNo: [this.card.cardNo, Validators.required],
-      expDate: [this.card.expDate, Validators.required],
-      name: [this.card.name, Validators.required],
-      cvv: [this.card.cvv, Validators.required]
+      cardNo: [this.card.cardNumber, [Validators.required, Validators.minLength(12), this.cardValidator.luhnValidator()]],
+      expDate: [this.card.expirationDate, Validators.required],
+      name: [this.card.holderName, Validators.required],
+      cvv: [this.card.ccv, Validators.required]
     });
   }
+  getCardNumberControl(): AbstractControl | null {
+    return this.userDetailsForm && this.userDetailsForm.get('cardNo');
+  }
 
-  onSignUpButtonPressed() {
-    this.success = 'Updated Successfully';
+  get getCardDetails() {
+
+    return this.userDetailsForm.controls;
+  }
+
+  onSubmitButtonPressed() {
+    if (this.userDetailsForm.invalid) return;
+    this.card.cardNumber = this.getCardDetails.cardNo.value;
+    this.card.holderName = this.getCardDetails.name.value;
+    this.card.expirationDate = this.getCardDetails.expDate.value;
+    this.card.ccv = this.getCardDetails.cvv.value;
+    this.cardInfo.emit(this.card);
+   // this.success = 'Updated Successfully';
   }
 }

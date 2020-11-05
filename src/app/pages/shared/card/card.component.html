@@ -1,24 +1,24 @@
 <mat-card>
   <mat-card-content>
-    <form [formGroup]="userDetailsForm" (ngSubmit)="onSignUpButtonPressed()">
+    <form [formGroup]="userDetailsForm" (ngSubmit)="onSubmitButtonPressed()">
       <p>
         <mat-form-field>
-          <input matInput type="text" matInput placeholder="Update Card No" formControlName="cardNo">
+          <input matInput type="text" matInput placeholder="Card number" formControlName="cardNo">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="Update your card holder's name" formControlName="name">
+          <input type="text" matInput placeholder="Name on the card" formControlName="name">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="Update expDate" formControlName="expDate">
+          <input type="text" matInput placeholder="Expiry date" formControlName="expDate">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
-          <input matInput matInput placeholder="Update CVV"
+          <input matInput matInput placeholder="CVC"
                  [type]="hide ? 'password' : 'text'" formControlName="cvv">
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
@@ -26,16 +26,20 @@
 
 
       <div fxLayout="column" fxLayout.xs="row" fxLayoutGap="5%" fxLayoutAlign="center">
-        <p *ngIf="error" class="error">
+        <!-- <p *ngIf="error" class="error">
           {{ error }}
         </p>
         <p *ngIf="success" class="alert-success">
           {{ success }}
-        </p>
+        </p> -->
+        <div *ngIf="getCardNumberControl().dirty">
+          <p [class.invalid]="getCardNumberControl().invalid"></p>
+          <p [class.valid]="getCardNumberControl().valid"></p>
+        </div>
       </div>
 
       <div class="button">
-        <button mat-raised-button color="primary" type="submit" mat-button>Update</button>
+        <button mat-raised-button color="primary" type="submit" mat-button>{{buttonName}}</button>
       </div>
 
     </form>
