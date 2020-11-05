@@ -56,6 +56,8 @@ import { VendorProductItemComponent } from './vendor-home/vendor-product-list/ve
 import {MatExpansionModule} from '@angular/material/expansion';
 import { AddProductComponent } from './vendor-home/add-product/add-product.component';
 import { BankComponent } from './bank/bank.component';
+import { OrderCockpitComponent } from './shop-home/order-cockpit/order-cockpit.component';
+import { OrderItemComponent } from './shop-home/order-cockpit/order-item/order-item.component';
 
 
 
@@ -91,7 +93,9 @@ import { BankComponent } from './bank/bank.component';
     VendorProductListComponent,
     VendorProductItemComponent,
     AddProductComponent,
-    BankComponent],
+    BankComponent,
+    OrderCockpitComponent,
+    OrderItemComponent],
 
 
     imports: [
@@ -124,7 +128,7 @@ import { BankComponent } from './bank/bank.component';
         FormsModule,
         MatListModule,
         MatTabsModule,
-      MatExpansionModule
+      MatExpansionModule,
     ],
   exports: [AdminHomeComponent,
     SalesViewComponent,

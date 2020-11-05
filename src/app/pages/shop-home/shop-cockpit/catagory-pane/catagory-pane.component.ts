@@ -61,7 +61,6 @@ export class CatagoryPaneComponent implements OnInit {
     }
 
     onReset(): void {
-        this.sharedService.resetFilters();
      }
     ngOnInit(): void {
 

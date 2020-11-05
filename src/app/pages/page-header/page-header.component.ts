@@ -1,24 +1,17 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { SharedService } from 'src/app/services/shared.service';
-import { Cart } from 'src/app/models';
+import {  Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Router} from '@angular/router';
+import {SharedService} from 'src/app/services/shared.service';
+import {Cart} from 'src/app/models';
+
 
 @Component({
-    selector: 'app-page-header',
-    templateUrl: './page-header.component.html',
-    styleUrls: ['./page-header.component.css']
+  selector: 'app-page-header',
+  templateUrl: './page-header.component.html',
+  styleUrls: [ './page-header.component.css' ]
 })
+
 export class PageHeaderComponent implements OnInit {
-<<<<<<< HEAD
-    @Input() isConnected: boolean;
-    @Input() cartList: Cart[] = this.sharedService.cartList;
-    @Output() search = new EventEmitter();
-    categories = this.sharedService.categoryList;
 
-
-    constructor(private router: Router, private sharedService: SharedService) {
-    }
-=======
   isConnected: boolean;
   @Input() cartList: Cart[] = this.sharedService.cartList;
   @Output() search = new EventEmitter();
@@ -29,7 +22,6 @@ export class PageHeaderComponent implements OnInit {
     this.isConnected = this.sharedService.currentUser == null ? false : true;
 
   }
->>>>>>> 746e302caa1b0566e33a547e58614ae9b28b15ee
 
     ngOnInit(): void {
     }
@@ -62,9 +54,6 @@ export class PageHeaderComponent implements OnInit {
       this.router.navigate(['home/edit-profile']);
     } else {
       this.router.navigate(['login']);
-    }
-    onLoginButtonClicked() {
-        this.router.navigate(['/login']);
     }
 
   }
