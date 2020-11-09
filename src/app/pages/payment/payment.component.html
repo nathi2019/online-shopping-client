@@ -4,7 +4,8 @@
       ${{amount}}
     </h1>
   </mat-card-title>
-
+  <h4 *ngIf="paymentOk" style="color: green;">Payment complete! Continue to creating account...</h4>
+  <h4 *ngIf='failureMessage' style="color: red;">{{failureMessage}}</h4>
   <mat-card-subtitle>
     <p
       style="text-align: center;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: large;">
@@ -13,8 +14,8 @@
 
   </mat-card-subtitle>
   <mat-card-content>
-    <form [formGroup]="cardForm" (ngSubmit)="onPayButton()">
-      <app-card [buttonName]="buttonName"></app-card>
-    </form>
+    <!-- <form [formGroup]="cardForm" (ngSubmit)="onPayButton()"> -->
+    <app-card [buttonName]="buttonName"></app-card>
+    <!-- </form> -->
   </mat-card-content>
 </mat-card>

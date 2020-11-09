@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { User } from '../models';
 import { ApiResponse } from '../util/response';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
+import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,7 +25,15 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
     console.log(username)
-    return this.http.post<ApiResponse>(environment.API_URL + "/login", { username, password })
+    const body = new HttpParams()
+      .set('username', username)
+      .set('password', password)
+      .set('grant_type','password');
+const headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('Authorization', 'Basic username:mobile,password:pin')
+      
+    return this.http.post<ApiResponse>(environment.API_URL_OAUTH_SERVICE + "/oauth/token",body.toString(), {headers})
       .pipe(map(response => {
         //login is succesfull if there is a jwt token
         if (response && response.result.access_token) {

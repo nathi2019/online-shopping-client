@@ -27,27 +27,37 @@ export class PaymentComponent implements OnInit {
   @Output() paymentStatus = new EventEmitter<boolean>();
   cardErrors: any;
   loading: boolean = false;
-  confirmation: any;
+  failureMessage = '';
   isSubmitted: boolean = false;
   paymentOk: boolean = false;
   cardForm: FormGroup;
-  buttonName ='Pay';
+  buttonName = 'Pay';
+  card: Card;
 
   constructor(
     private cardValidator: CreditCardValidatorService,
     private formBuidler: FormBuilder,
     private paymentService: PaymentService,
     private encryption: EncryptionService
-  ) { }
+  ) {
+    this.paymentService.getCardInfo$().subscribe(card => {
+      this.card = card;
+      this.paymentService.placePayments(this.prepareOrder()).subscribe(response => {
+        //emmit payment status values 
+        console.log(response)
+        this.paymentService.emitPaymentStatus(response.status ==='SUCCESS');
+        if (response.status === 'SUCCESS') {
+          this.paymentOk = true;
+        }else if(response.status === 'FAILED'){
+          this.failureMessage = response.paymentMessage; 
+        }
+      })
+    })
+  }
 
 
   ngOnInit() {
-    this.cardForm = this.formBuidler.group({
-      cardHolderName: ['', Validators.required],
-      cardNumber: ['', [Validators.required, Validators.minLength(12), this.cardValidator.luhnValidator()]],
-      cvc: ['', Validators.required],
-      expirationDate: ['', Validators.required]
-    });
+
   }
   get getCardForm() {
     return this.cardForm.controls;
@@ -58,33 +68,13 @@ export class PaymentComponent implements OnInit {
   getCardNumberControl(): AbstractControl | null {
     return this.cardForm && this.cardForm.get('cardNumber');
   }
-
-  onPayButton() {
-    this.isSubmitted = true;
-    if (this.cardForm.invalid) return
-    this.loading = true;
-    this.paymentService.placePayments(this.prepareOrder()).pipe(first())
-      .subscribe(response => {
-        console.log(response)
-        this.paymentOk = response.status === "SUCCESS";
-        this.paymentStatus.emit(this.paymentOk);
-
-      })
-
-
-
-  }
   prepareOrder(): PaymentDetail {
     let payment = new PaymentDetail();
-    let card = new Card();
-
     payment.amount = this.amount;
     payment.orderDescription = this.description;
-    card.cardNumber = this.getCardForm.cardNumber.value;
-    card.holderName = this.getCardForm.cardHolderName.value;
-    card.ccv = this.getCardForm.cvc.value;
-    card.expirationDate = this.getCardForm.expirationDate.value;
-    payment.payerCard = card;
+
+    payment.payerCard = this.card;
+    payment.recipientAccountNumber = "2970236995"
     return payment;
   }
 

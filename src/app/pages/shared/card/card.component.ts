@@ -5,6 +5,7 @@ import { User } from '../../../models';
 import { Card } from '../../../models';
 import { CreditCardValidatorService } from 'src/app/services/credit-card-validator.service';
 import { AbstractControl } from '@angular/forms';
+import { PaymentService } from '../../../services/payment.service';
 
 @Component({
   selector: 'app-card',
@@ -19,11 +20,20 @@ export class CardComponent implements OnInit {
   hide = true;
   success;
   @Output() cardInfo = new EventEmitter<Card>();
-  @Input() buttonName ='Update';
+  @Input() buttonName = 'Update';
 
   constructor(private authService: AuthenticationService,
     private formBuilder: FormBuilder,
-    private cardValidator: CreditCardValidatorService,) { }
+    private cardValidator: CreditCardValidatorService,
+    private cardService: PaymentService) {
+    //subscribe to the payment status to wether to show or hide
+
+    this.cardService.getPaymentInfo$().subscribe(val => {
+      if (val) {
+        this.userDetailsForm.disable();
+      }
+    })
+  }
 
   ngOnInit(): void {
     this.user = this.authService.getCurrentUser();
@@ -53,7 +63,8 @@ export class CardComponent implements OnInit {
     this.card.holderName = this.getCardDetails.name.value;
     this.card.expirationDate = this.getCardDetails.expDate.value;
     this.card.ccv = this.getCardDetails.cvv.value;
-    this.cardInfo.emit(this.card);
-   // this.success = 'Updated Successfully';
+    console.log(this.card);
+    this.cardService.emitCurrentCard(this.card)
+    // this.success = 'Updated Successfully';
   }
 }

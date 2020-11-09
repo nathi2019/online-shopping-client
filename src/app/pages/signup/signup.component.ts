@@ -6,6 +6,7 @@ import { AuthenticationService } from 'src/app/services';
 import { User } from '../../models/user.model'
 import { UserCartComponent } from '../shop-home/user-cart/user-cart.component';
 import { Router } from '@angular/router';
+import { PaymentService } from 'src/app/services/payment.service';
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +21,7 @@ export class SignupComponent implements OnInit {
   error = "";
   signUpForm: FormGroup;
   signUpAsVendor: boolean = false;
-  registrationFee: number = 25000;
+  registrationFee: number = 25;
   registrationDescription: string = 'up front registration payment';
   isSubmitted: boolean = false;
   loading: boolean = false;
@@ -28,7 +29,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private paymentService: PaymentService
   ) {
 
     /**
@@ -44,6 +46,12 @@ export class SignupComponent implements OnInit {
       passwordRepeat: ['', Validators.required],
       bankAccountNumber: ['', Validators.required]
     });
+
+    // subscribe to the payment's module emitted status 
+    this.paymentService.getPaymentInfo$().subscribe(status => {
+      this.paymentStatus = status;
+
+    })
   }
 
   ngOnInit(): void { }
