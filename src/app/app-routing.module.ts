@@ -10,6 +10,7 @@ import {LoginComponent} from './pages/login/login.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import {UserDetailsComponent} from './pages/user-details/user-details.component';
 import {VendorHomeComponent} from './pages/vendor-home/vendor-home.component';
+import {OrderCockpitComponent} from './pages/shop-home/order-cockpit/order-cockpit.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
 
       {path: '', component: ShopCockpitComponent},
       {path: 'x', component: VendorHomeComponent},
-      {path: 'orders', component: OrderComponent},
+      {path: 'orders', component: OrderCockpitComponent},
       {path: 'cart', component: UserCartComponent},
       {path: 'edit-profile', component: EditProfileComponent},
       {path: 'user-details', component: UserDetailsComponent}

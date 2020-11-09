@@ -8,6 +8,7 @@ import {Product, Vendor} from '../../../models';
 })
 export class StatusPaneComponent implements OnInit {
   @Input() vendor: Vendor;
+  @Input() categories: string[];
   constructor() { }
 
   ngOnInit(): void {

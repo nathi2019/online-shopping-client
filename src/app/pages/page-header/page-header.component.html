@@ -30,11 +30,18 @@
 
 
     <span class="toolbar-spacer"></span>
+  <button *ngIf="!isConnected" mat-button (click)="onOrderButtonClicked()">
+
+    <mat-icon>receipt_long</mat-icon>
+  </button>
 
     <button mat-button (click)="onLoginButtonClicked()">
+    <button mat-button (click)="onEditProfileButtonClicked()">
+
         <mat-icon>account_circle</mat-icon>
         <span *ngIf="!isConnected" class="login-label"> Login</span>
     </button>
+
 
     <button mat-button (click)="onCartButtonClicked()">
         <mat-icon>shopping_bag</mat-icon>

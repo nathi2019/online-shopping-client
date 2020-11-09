@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { SharedService } from 'src/app/services/shared.service';
-import { Cart } from 'src/app/models';
+import {  Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Router} from '@angular/router';
+import {SharedService} from 'src/app/services/shared.service';
+import {Cart} from 'src/app/models';
+
 
 @Component({
   selector: 'app-page-header',

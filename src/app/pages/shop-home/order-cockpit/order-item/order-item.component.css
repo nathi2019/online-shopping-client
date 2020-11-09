@@ -1,0 +1,19 @@
+
+table {
+  padding: 30px;
+  width: 100%;
+
+}
+
+.order-number {
+  float: left;
+}
+
+.order-date {
+  float: right;
+}
+
+.total {
+  margin-top: 20px;
+  float: right;
+}

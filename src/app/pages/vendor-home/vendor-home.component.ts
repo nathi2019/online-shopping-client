@@ -16,7 +16,7 @@ export class VendorHomeComponent implements OnInit {
   active = 'Approved products:';
   rejected = 'Rejected products';
   pending = 'Pending products';
-
+  categories: string[];
   vendor: Vendor = {
     products: this.sharedService.productList,
     company: {name: 'M&H'}
@@ -39,7 +39,9 @@ export class VendorHomeComponent implements OnInit {
         this.approvedProducts = products;
         console.log(this.approvedProducts);
       }, error => console.log(error));
-
+    this.productService.getCategories()
+      .subscribe(categories => this.categories = categories,
+        error => console.log(error));
   }
 
   ngOnInit(): void {

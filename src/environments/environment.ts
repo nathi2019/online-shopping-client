@@ -4,11 +4,12 @@
 
 export const environment = {
   production: false,
-  API_URL: "http://localhost:8084",
-  API_URL_PAYMENT_SERVICE: "http://localhost:8092",
-  API_URL_OAUTH_SERVICE: "http://localhost:8094",
-  paymentPublicKey: "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC5kO7zrdqNNPlILPN5Gpy3r3//NVv8p15vziaok+mkba6CCxEM79hr3Xld4mkkwzAdvyct4v8ZEHmSMgGfIETep8CCq5i58XPA6BAQMCuUGgnM6k6139zgxS+YSn4TCZmpcH/1SSbn9B122MKVOybd6+QA8xp1VSyQzqnW0fThCQIDAQAB",
+  API_URL: 'http://localhost:8084',
+  API_URL_ORDER: 'http://localhost:8093',
+  API_URL_PAYMENT_SERVICE: 'http://localhost:8092',
+  paymentPublicKey: 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC5kO7zrdqNNPlILPN5Gpy3r3//NVv8p15vziaok+mkba6CCxEM79hr3Xld4mkkwzAdvyct4v8ZEHmSMgGfIETep8CCq5i58XPA6BAQMCuUGgnM6k6139zgxS+YSn4TCZmpcH/1SSbn9B122MKVOybd6+QA8xp1VSyQzqnW0fThCQIDAQAB',
   encryptionEnabled: false
+
 };
 
 /*
